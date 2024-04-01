@@ -1,5 +1,6 @@
 interface Product {
   name: string
+  slug:string
   images: string[]
   rating: number
   sold: number

@@ -2,24 +2,24 @@ import ProductsRecomendations from '../components/ProductsRecomendations'
 import ProductImages from '../components/ProductImages'
 import {AiOutlinePlus,AiOutlineMinus} from 'react-icons/ai'
 import Ratings from '@/components/Ratings'
-import product from '@/assets/product'
-import images from '@/assets/productImages'
 import categories from "@/assets/categories"
 import MoreDetail from '../components/MoreDetail'
 import Varriants from '../components/Varriants'
 import Reviews from '../components/Reviews'
+import { products } from '@/assets/products'
 
-type ParamsT = {
+type Params = {
     params : {slug : string}
 }
-const ProductDetail = ({params}:ParamsT) => {
-  return (
+const ProductDetail = ({params}:Params) => {
+  const product = products.find((product) => product.slug === params.slug)
+  return product && (
     <>
     <div className='w-full flexCenter'>
     <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 mt-14 sm:mt-24 sm:px-8'>
         {/* images */}
         <div className='overflow-hidden sm:sticky sm:top-24 h-fit'>
-           < ProductImages images={images} />
+           < ProductImages images={product.images} />
         </div>
         {/* content */}
         <div className='w-full md:w-[80%] px-4'>
@@ -30,7 +30,7 @@ const ProductDetail = ({params}:ParamsT) => {
 
             {/* add to cart */}
             <div className='hidden sm:block border-t mt-4 py-4'>
-                <h3 className='text-sm'><span className='font-bold'>{product.stock} items</span> Left</h3>
+                <h3 className='text-sm'><span className='font-bold'>5 items</span> Left</h3>
                 <div className='flex items-center gap-6 mt-3'>
                     <div className='flex items-center border rounded-lg text-gray-500'>
                         <button className='px-3 aspect-square'>< AiOutlineMinus /></button>

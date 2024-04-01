@@ -25,7 +25,6 @@ const Navbar = async () => {
                 {/* 2 */}
                 <div className='w-1/3 flex items-center justify-end md:w-1/2 gap-1 '>
                     < Search className={`rounded-full`} />
-
                     <div className='flexCenter gap-4 sm:gap-8 md:gap-5'>
                         < CartSideBar />
                         <AvatarDropdown />

@@ -10,7 +10,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
         <Dropdown placement="bottom-end">
         <DropdownTrigger>
           <Avatar 
-          src="./avatar.jpg" 
+          src="/avatar.jpg" 
           className="w-[34px] h-[34px]"
           as={`button`}
           />
@@ -18,7 +18,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
         <DropdownMenu aria-label="Profile Actions" variant="flat">
           <DropdownItem key="profile" className="py-3">
             <div className="flex items-center gap-2">
-              <Avatar src="./avatar.jpg" className="w-[35px] h-[35px]" />
+              <Avatar src="/avatar.jpg" className="w-[35px] h-[35px]" />
               <div className="flex flex-col">
                 <span className="block font-medium truncate max-w-[128px]">Alexsandre Dicaprio Santoso Nugroho Sucipto Abroho Suryono Tikotok</span>
                 <span className="text-xs text-gray-500">Account</span>

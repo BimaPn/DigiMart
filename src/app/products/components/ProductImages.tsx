@@ -3,16 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Pagination } from 'swiper/modules';
 
-type ImagesT = {
-    image : string,
-    id : number
-}
-
-const ProductImages = ({images}:{images:ImagesT[]}) => {
+const ProductImages = ({images}:{images:string[]}) => {
     const pagination = {
         clickable: true,
         renderBullet: function (index:number, className:string) {
-          return `<div class="${className} rounded-2xl overflow-hidden flexCenter"><img class="hidden sm:block w-[75%]" src="${images[index].image}" alt="${images[index].image}"/></div>`;
+          return `<div class="${className} rounded-2xl overflow-hidden flexCenter"><img class="hidden sm:block w-[75%]" src="${images[index]}" alt="${images[index]}"/></div>`;
         },
         el : '.swiper-pagination',   
       };
@@ -25,9 +20,9 @@ const ProductImages = ({images}:{images:ImagesT[]}) => {
             className='w-full rounded-none sm:rounded-2xl'
             loop
             >
-            {images.map(item => (
-                <SwiperSlide  key={item.id} className='aspect-square sm:aspect-[4/3] bg-light'>
-                    <img src={item.image} alt={item.image} className='mx-auto w-full sm:w-[80%]'/>
+            {images.map((item, index) => (
+                <SwiperSlide  key={index} className='aspect-square sm:aspect-[4/3] bg-light'>
+                    <img src={item} alt={item} className='mx-auto w-full sm:w-[80%]'/>
                 </SwiperSlide>
             ))}
         </Swiper>

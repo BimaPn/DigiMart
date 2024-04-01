@@ -11,9 +11,9 @@ export const metadata = {
     children: React.ReactNode
   }) {
     return (
-        <DefaultLayout>
-            {children}
-            < BottomNav />
-        </DefaultLayout>
+      <DefaultLayout>
+        {children}
+        < BottomNav />
+      </DefaultLayout>
     )
   }
