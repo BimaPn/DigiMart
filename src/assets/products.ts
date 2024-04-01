@@ -5,7 +5,8 @@ export const products = [
         images:['/images/categories/tv.png'],
         rating: 5,
         sold: 42,
-        price: 415
+        price: 415,
+        stock: 21
     },
     {
         name:'Asus Zenbook Flip S UX370',
@@ -13,7 +14,8 @@ export const products = [
         slug: "asus-zenbook-flip-ux370",
         rating: 4.5,
         sold: 64,
-        price: 718
+        price: 718,
+        stock: 41
     },
     {
         name:'iPhone 13 Pro Max',
@@ -21,7 +23,8 @@ export const products = [
         images:['/images/categories/phone.png'],
         rating: 4.8,
         sold: 110,
-        price: 1200
+        price: 1200,
+        stock: 3
     },
     {
         name:'Playstation 4 Pro 1TB',
@@ -29,7 +32,8 @@ export const products = [
         images:['/images/categories/console.png'],
         rating: 4.2,
         sold: 400,
-        price: 250
+        price: 250,
+        stock: 9
     },
     {
         name:'Playstation 4 Controller',
@@ -37,7 +41,8 @@ export const products = [
         images:['/images/categories/controller.png'],
         rating: 4.5,
         sold: 84,
-        price: 60
+        price: 60,
+        stock: 29
     },
     {
         name:'Beats Pro Wired Headphones',
@@ -45,7 +50,8 @@ export const products = [
         images:['/images/categories/headset.png'],
         rating: 5,
         sold: 32,
-        price: 225
+        price: 225,
+        stock: 7
     },
     {
         name:'Fitbit Versa 2 Black',
@@ -53,7 +59,8 @@ export const products = [
         images:['/images/categories/smartwatch.png'],
         rating: 5,
         sold: 119,
-        price: 350
+        price: 350,
+        stock: 14
     },
     {
         name:'VR Oculus Headsets',
@@ -61,7 +68,8 @@ export const products = [
         images:['/images/categories/vr.png'],
         rating: 5,
         sold: 650,
-        price: 415
+        price: 415,
+        stock: 99
     },
     {
         name:'Thermaltake KB-CMC Gaming Keyboard',
@@ -69,6 +77,7 @@ export const products = [
         images:['/images/categories/keyboardMouse.png'],
         rating: 5,
         sold: 99,
-        price: 115
+        price: 115,
+        stock: 12
     },
 ]
