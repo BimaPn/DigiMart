@@ -2,16 +2,12 @@ import Link from 'next/link'
 import Search from '@/components/Search'
 import SideBarNavbar from '@/components/SideBarNavbar'
 import CartSideBar from '@/components/CartSideBar'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import Signout from './Signout'
-import LoginModal from './auth/LoginModal'
+import AvatarDropdown from './AvatarDropdown'
 
 const Navbar = async () => {
-    const session = await getServerSession(authOptions)
     return(
         <nav className='w-full fixed top-0 right-0 left-0 bg-white z-[10]'>
-        <div className='w-full flexCenter flexCenter py-[14px] md:py-5 px-4 sm:px-6 md:px-10'>
+        <div className='w-full flexCenter flexCenter py-[14px] md:py-5'>
             <div className='boxWidth flexBetween'>
                 {/* burger menu */}
                 <div className='w-1/3 block md:hidden'>
@@ -32,14 +28,7 @@ const Navbar = async () => {
 
                     <div className='flexCenter gap-4 sm:gap-8 md:gap-5'>
                         < CartSideBar />
-                        {session?.user == null ? (
-                            <LoginModal /> 
-                        ) : (
-                            <>
-                            <h1>welcome <span className='font-bold'>{session?.user?.name}</span></h1>
-                            < Signout />
-                            </>
-                        )}
+                        <AvatarDropdown />
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ const LoginModal = () => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   return (
     <>
-      <Button onPress={onOpen} className="bg-dark text-white text-base" size="md">Login</Button>
+      <Button onPress={onOpen} className="bg-dark text-white text-base md:block hidden" size="md">Login</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
         <ModalContent>
           {(onClose) => (
@@ -31,7 +31,7 @@ const LoginModal = () => {
 
               </ModalBody>
               <ModalFooter>
-                <div className="w-full flex flex-col gap-2">
+                <div className="w-full flex flex-col gap-3">
                   <div className="text-sm text-gray-600">
                     <span>Dont have an account ? <Link className="font-medium text-dark" href={`/register`}>Register</Link></span>
                   </div>
