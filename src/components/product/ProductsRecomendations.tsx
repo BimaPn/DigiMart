@@ -3,7 +3,7 @@ import React from 'react'
 import Slider from '@/components/Slider'
 import { SwiperSlide } from 'swiper/react'
 import breakPoint from '@/assets/breackPoint'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/product/ProductCard'
 import Link from 'next/link'
 
 const ProductsRecomendations = ({products}:{products:any[]}) => {

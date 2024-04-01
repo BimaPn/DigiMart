@@ -1,5 +1,5 @@
 import { products } from "@/assets/products"
-import ProductSlider from "../ProductSlider"
+import ProductSlider from "@/components/product/ProductSlider"
 
 const Trending = () => {
   return (

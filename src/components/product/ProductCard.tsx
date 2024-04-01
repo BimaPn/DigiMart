@@ -1,4 +1,4 @@
-import Ratings from './Ratings'
+import Ratings from '@/components/Ratings'
 import Image from 'next/image'
 
 const ProductCard = ({image,label,sold,price}:ProductCard) => {

@@ -1,5 +1,5 @@
 import DefaultLayout from "@/layouts/DefaultLayout"
-import BottomNav from "../components/BottomNav"
+import BottomNav from "@/components/product/BottomNav"
 
 export const metadata = {
     title: 'Detail Product',
