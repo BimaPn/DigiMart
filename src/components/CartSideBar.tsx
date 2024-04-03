@@ -7,7 +7,15 @@ import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
 
 const CartItem = ({product}:{product:ProductCart}) => {
-  const { deleteProduct } = useProductCart()
+  const { deleteProduct, changeQuantity } = useProductCart()
+  const increaseQuantity = () => {
+    if(product.quantity >= product.stock) return
+    changeQuantity(product, 1)
+  }
+  const decreaseQuantity = () => {
+    if(product.quantity <= 1) return
+    changeQuantity(product, -1)
+  }
   return(
     <div className='flex gap-4 relative'>
     <div className='w-36 h-fit aspect-square bg-light rounded-lg'>
@@ -24,9 +32,15 @@ const CartItem = ({product}:{product:ProductCart}) => {
 
       <div className='flexBetween mt-3'>
         <div className='w-fit flex items-center border rounded-lg text-gray-500 text-xs xs:text-sm '>
-          <button className='px-2 aspect-square'>< AiOutlineMinus /></button>
+          <button
+          onClick={() => decreaseQuantity()}
+          className='px-2 aspect-square'
+          >< AiOutlineMinus /></button>
           <span className='px-2 text-dark'>{product.quantity}</span>
-          <button className='px-2 aspect-square'>< AiOutlinePlus /></button>
+          <button
+          onClick={() => increaseQuantity()}
+          className='px-2 aspect-square'
+          >< AiOutlinePlus /></button>
         </div>
         <h4 className='font-bold xs:text-lg'>${product.price}</h4>
       </div>
@@ -40,7 +54,7 @@ const CartItem = ({product}:{product:ProductCart}) => {
 
 const CartSideBar = () => {
   const { isOpen,toggleOpen } = useCartMenu()
-  const { products } = useProductCart()
+  const { products, priceTotal } = useProductCart()
   return (
     <div className='flexCenter'>
         <button onClick={() => toggleOpen()}>
@@ -76,19 +90,19 @@ const CartSideBar = () => {
         </div>
 
         {/* add to cart navigation */}
-        < CartFooter />
+        < CartFooter totalPrice={priceTotal()}/>
       </div>
     </div>
   )
 }
 
-const CartFooter = () => {
+const CartFooter = ({totalPrice}:{totalPrice:number}) => {
   return(
     <div className='fixed bottom-0 right-0 left-0 py-4 px-4'>
     <div className='flex flex-col gap-[6px] mb-6 pt-4 border-t'>
       <div className='flexBetween'>
         <span>Subtotal</span>
-        <span>$430</span>
+        <span>${totalPrice}</span>
       </div>
       <div className='flexBetween'>
         <span>Shipping</span>
