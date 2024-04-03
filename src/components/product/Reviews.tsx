@@ -26,7 +26,7 @@ const Reviews = () => {
                     
                 <div className='mt-8'>
                     {reviews.map((item,index) => (
-                        <div className='mb-11'>
+                        <div key={index} className='mb-11'>
                             {/* header */}
                             <div className='flex items-center'>
                                 <img src={item.image} className='w-12 aspect-square rounded-full object-cover' alt={item.image} />

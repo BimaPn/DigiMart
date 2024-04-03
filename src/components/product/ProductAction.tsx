@@ -3,6 +3,8 @@ import Varriants from '@/components/product/Varriants'
 import { Button } from '@nextui-org/react'
 import { useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { useCartMenu } from '../providers/CartMenuProvider'
+import { useProductCart } from '../providers/ProductCartProvider'
 
 const ProductAction = ({product}:{product:Product}) => {
   const [cart, setCart] = useState<ProductCart>({
@@ -14,6 +16,9 @@ const ProductAction = ({product}:{product:Product}) => {
     variants: [],
     quantity: 1
   })
+  const { toggleOpen } = useCartMenu()
+  const { addProduct } = useProductCart()
+
   const increaseQuantity = () => {
     if(cart.quantity >= product.stock) return
     setCart({...cart, quantity: cart.quantity+1})
@@ -30,6 +35,10 @@ const ProductAction = ({product}:{product:Product}) => {
       return cart
     })
   }
+  const addToCart = () => {
+    addProduct({...cart})
+    toggleOpen()
+  }
   return (
     <>
       <div className='hidden sm:block border-t mt-4 py-4'>
@@ -44,7 +53,7 @@ const ProductAction = ({product}:{product:Product}) => {
           </div>
            <Button
            disabled={cart.quantity <= 0}
-           onClick={() => console.log(cart)}
+           onClick={() => addToCart()}
            className='text-base bg-dark text-white disabled:opacity-50 disabled:cursor-not-allowed'
            radius='sm'>
            Add to cart

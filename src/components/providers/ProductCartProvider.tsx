@@ -4,7 +4,7 @@ import { useState, createContext, useContext } from "react"
 type ProductCartProviderT = {
   products: ProductCart[]
   addProduct: (product:ProductCart) => void
-  deleteProduct: (slug: string) => void
+  deleteProduct: (product:ProductCart) => void
 }
 
 const productCartContext = createContext<ProductCartProviderT | null>(null)
@@ -14,43 +14,52 @@ const ProductCartProvider = ({children}:{children:React.ReactNode}) => {
 
   const addProduct = (product:ProductCart) => {
     if(isProductExist(product)) {
-      updateProduct(product.slug, product.quantity)
-      return
+      updateProduct(product)
+    }else {
+      setProducts([product,...products])
     }
-    setProducts([product,...products])
   }
-
   const isProductExist = (product:ProductCart) => {
-    products.forEach((item) => {
-      if(item.slug === product.slug) {
-        item.variants.forEach((variant,index) => {
-          const target = product.variants[index]
-          if(variant[0] !== target[0] && variant[1] !== target[1]) {
-            return false
-          }
-        })
+    if(products.length <= 0) return false
+    for(let i = 0;i < products.length;i++) {
+      const item = products[i]
+      if(item.slug === product.slug && checkVariant(item.variants, product.variants)) {
         return true
       }
-    })
+    }
     return false
   }
-
-  const updateProduct = (slug : string, quantity: number) => {
-    setProducts((products) => {
-      return products.map((product) => {
-        if(product.slug === slug) {
-          if(product.quantity + quantity <= product.stock) {
-            product.quantity += quantity
-          }
-        }
-        return product
-      })
-    })
+  const checkVariant = (variant1: PickedVariant[], variant2: PickedVariant[]) => {
+    for(let i = 0; i < variant1.length;i++) {
+      const source = variant1[i]
+      const target = variant2[i]
+      if(source.label !== target.label || source.value !== target.value) {
+        return false
+      }
+    }
+    return true
   }
-  const deleteProduct = (slug:string) => {
-    setProducts((products) => {
-      return products.filter((product) => product.slug !== slug)
+
+  const updateProduct = (product: ProductCart) => {
+    const prevProducts = products.map((item) => {
+      if(item.slug === product.slug && checkVariant(item.variants, product.variants)) {
+        if((item.quantity + product.quantity) <= product.stock) {
+          item.quantity += product.quantity
+        }
+      }
+      return item
     })
+    setProducts(prevProducts)
+  }
+
+  const deleteProduct = (product: ProductCart) => {
+    const prevProducts = products.filter((item) =>{
+      if(item.slug === product.slug && checkVariant(item.variants, product.variants)) {
+        return false
+      }
+      return true 
+    })
+    setProducts(prevProducts)
   }
   return (
     <productCartContext.Provider value={{ products, addProduct, deleteProduct }}>
@@ -59,7 +68,7 @@ const ProductCartProvider = ({children}:{children:React.ReactNode}) => {
   )
 }
 
-export const useProductCartContext = () => {
+export const useProductCart = () => {
   return useContext(productCartContext) as ProductCartProviderT
 }
 

@@ -15,7 +15,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
           as={`button`}
           />
         </DropdownTrigger>
-        <DropdownMenu aria-label="Profile Actions" variant="flat">
+        <DropdownMenu aria-label="Static Actions">
           <DropdownItem key="profile" className="py-3">
             <div className="flex items-center gap-2">
               <Avatar src="/avatar.jpg" className="w-[35px] h-[35px]" />
