@@ -7,13 +7,19 @@ import { useCartMenu } from '../providers/CartMenuProvider'
 import { useProductCart } from '../providers/ProductCartProvider'
 
 const ProductAction = ({product}:{product:Product}) => {
+  const initialVariants = () : PickedVariant[] => {
+    return product.variants.map((item) => {
+      return {label: item.label, value: item.options[0]}
+    })
+  }
+
   const [cart, setCart] = useState<ProductCart>({
     name: product.name,
     slug: product.slug,
     price: product.price,
     stock: product.stock,
     image: product.images[0],
-    variants: [],
+    variants: initialVariants(),
     quantity: 1
   })
   const { toggleOpen } = useCartMenu()
@@ -29,10 +35,14 @@ const ProductAction = ({product}:{product:Product}) => {
   }
 
   const addVariant = (val:PickedVariant) => {
-    setCart((cart) => {
-      cart.variants = cart.variants.filter((opt) => opt.label !== val.label)
-      cart.variants.push(val)
-      return cart
+    setCart((prev) => {
+      prev.variants = prev.variants.map((opt) => {
+        if(opt.label === val.label) {
+          opt.value = val.value
+        }
+        return opt
+      })
+      return {...prev} 
     })
   }
   const addToCart = () => {
@@ -60,7 +70,11 @@ const ProductAction = ({product}:{product:Product}) => {
            </Button>
         </div>
       </div>
-      < Varriants variants={product.variants} onChange={addVariant}/>
+      <Varriants 
+      pickedVariants={cart.variants}
+      variants={product.variants}
+      onChange={addVariant}
+      />
     </>
   )
 }

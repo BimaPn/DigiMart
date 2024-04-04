@@ -25,10 +25,10 @@ interface ProductCart extends ProductGeneral {
 
 type PickedVariant = {
   label: string
-  value: string | number
+  value: string
 }
 
 type Variant = {
  label: string
- options: (string|number)[]
+ options: string[]
 }

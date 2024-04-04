@@ -1,11 +1,18 @@
 'use client'
-import {useState} from 'react'
 
-const Varriants = ({variants, onChange}:{variants:Variant[], onChange:(pickedValue:PickedVariant) => void}) => {
-  const [pickedValues, setPickedValues] = useState<Map<number, string>>(new Map())
-
-  const buttonClick = (pickedValue:PickedVariant, option:Map<number,string>) => {
-    setPickedValues(option)
+const Varriants = (
+{
+  pickedVariants, 
+  variants, 
+  onChange
+}:
+{
+  pickedVariants:PickedVariant[],
+  variants:Variant[],
+  onChange:(pickedValue:PickedVariant) => void
+}
+) => {
+  const buttonClick = (pickedValue:PickedVariant) => {
     onChange(pickedValue)
   }
   return (
@@ -17,8 +24,9 @@ const Varriants = ({variants, onChange}:{variants:Variant[], onChange:(pickedVal
             {item.options.map((option,optionIndex) => (
               <button
               key={optionIndex}
-              onClick={() => buttonClick({label:item.label,value:option},new Map().set(index, option))}
-              className={`w-fit px-4 py-2 border rounded-lg ${pickedValues.get(index) === option ? ' border-gray-800  text-gray-800' : 'text-gray-400'}`}
+              onClick={() => buttonClick({label:item.label,value:option})}
+              className={`w-fit px-4 py-2 border rounded-lg
+              ${pickedVariants[index].value.includes(option) ? ' border-gray-800  text-gray-800' : 'text-gray-400'}`}
               >
                 {option}
               </button>
