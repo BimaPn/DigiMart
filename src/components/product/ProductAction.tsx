@@ -35,18 +35,19 @@ const ProductAction = ({product}:{product:Product}) => {
   }
 
   const addVariant = (val:PickedVariant) => {
-    setCart((prev) => {
-      prev.variants = prev.variants.map((opt) => {
-        if(opt.label === val.label) {
-          opt.value = val.value
-        }
-        return opt
-      })
-      return {...prev} 
+    const filteredVariants = cart.variants.map((opt) => {
+      if(opt.label === val.label) {
+        opt.value = val.value
+      }
+      return opt
     })
+    setCart({...cart,variants:filteredVariants})
+    
+
   }
   const addToCart = () => {
-    addProduct({...cart})
+    const variants = cart.variants.map((opt) => ({...opt}))
+    addProduct({...cart,variants})
     toggleOpen()
   }
   return (

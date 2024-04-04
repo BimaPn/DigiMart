@@ -20,9 +20,11 @@ const ProductCartProvider = ({children}:{children:React.ReactNode}) => {
     }else {
       setProducts([product,...products])
     }
+    console.log(product)
   }
   const isProductExist = (product:ProductCart) => {
     if(products.length <= 0) return false
+      console.log(products)
     for(let i = 0;i < products.length;i++) {
       const item = products[i]
       if(item.slug === product.slug && checkVariant(item.variants, product.variants)) {
