@@ -6,6 +6,7 @@ type ProductProviderT = {
   products: Product[]
   addFavorite: (slug:string) => void
   removeFavorite: (slug:string) => void
+  favoriteProducts: () => Product[]
 }
 const productContext = createContext<ProductProviderT | null>(null)
 
@@ -38,8 +39,11 @@ const ProductProvider = ({children}:{children:React.ReactNode}) => {
       })
     })
   }
+  const favoriteProducts = () => {
+    return products.filter((product) => product.isFavorite === true)
+  }
   return (
-    <productContext.Provider value={{ products, addFavorite, removeFavorite }}>
+    <productContext.Provider value={{ products, addFavorite, removeFavorite, favoriteProducts }}>
       {children}
     </productContext.Provider>    
   )

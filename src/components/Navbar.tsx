@@ -6,8 +6,8 @@ import AvatarDropdown from './AvatarDropdown'
 
 const Navbar = async () => {
     return(
-        <nav className='w-full fixed top-0 right-0 left-0 bg-white z-[10]'>
-        <div className='w-full flexCenter flexCenter py-[14px] md:py-5'>
+        <nav className='w-full sticky top-0 right-0 left-0 bg-white z-[10]'>
+        <div className='w-full flexCenter flexCenter py-[14px] md:py-[18px]'>
             <div className='boxWidth flexBetween'>
                 {/* burger menu */}
                 <div className='w-1/3 block md:hidden'>

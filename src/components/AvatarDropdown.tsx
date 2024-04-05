@@ -3,6 +3,7 @@ import {Avatar, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@ne
 import { IoMdSettings } from "react-icons/io"
 import { FaHeart, FaUser } from "react-icons/fa6"
 import { IoLogOut } from "react-icons/io5"
+import Link from "next/link"
 
 const AvatarDropdown = ({className}:{className?:string}) => {
   return (
@@ -46,6 +47,8 @@ const AvatarDropdown = ({className}:{className?:string}) => {
 
           <DropdownItem 
           key="favorite"
+          as={Link}
+          href="/favorite"
           className="group"
           startContent={
           <FaHeart className="text-[19px] mx-[1px] group-hover:text-black text-gray-500" />
