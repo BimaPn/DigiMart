@@ -1,23 +1,17 @@
-'use client'
 import BoxSection from '@/layouts/BoxSection'
-import { Swiper, SwiperSlide } from 'swiper/react'; 
-import SliderItem from '../SliderItem';
-import 'swiper/css';
+import SliderItem from '../SliderItem'
 const Hero = () => {
     return(
       <section className='px-3 sm:px-6'>
-        <Swiper
-           spaceBetween={0}
-           slidesPerView={1}
-           className='max-w-[1440px] rounded-2xl'
-           >
-           {[1].map(item => 
-           <SwiperSlide key={item} className='rounded-2xl overflow-hidden'>
-            < SliderItem imgSrc={`/images/hero/vr.jpg`} />
-           </SwiperSlide>
-           )}
-     
-         </Swiper>
+        <div className='max-w-[1440px] flex gap-4 mx-auto'>
+          <SliderItem imgSrc={`/images/hero/vr.jpg`} />
+          <div className='w-[35%] flex flex-col gap-4'>
+            <div className='w-full aspect-[16/9] bg-dark rounded-2xl'>
+            </div>
+            <div className='w-full aspect-[16/9] bg-dark rounded-2xl'>
+            </div>
+          </div>
+        </div>
       </section>
     )
 }

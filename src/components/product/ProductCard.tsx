@@ -5,7 +5,7 @@ import FavoriteButton from './FavoriteButton'
 const ProductCard = ({image,label,sold,price}:ProductCard) => {
   return (
     <div className={`w-full relative group`}>
-        <div className="w-full aspect-[3/4] flexCenter bg-light rounded-lg overflow-hidden group-hover:brightness-90">
+        <div className="w-full aspect-[3/4] flexCenter bg-light rounded-lg overflow-hidden group-hover:brightness-95">
             <Image src={image} width={600} height={600}  className='w-full aspect-square group-hover:scale-110 transform-transition' alt={label} />
         </div>
         <div className='w-full mt-3'>
