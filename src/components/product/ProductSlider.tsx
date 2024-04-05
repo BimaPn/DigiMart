@@ -12,6 +12,8 @@ const ProductSlider = ({products,title}:{products:Product[],title:string}) => {
         <SwiperSlide key={index} className={`flexCenter flex-col ${index == 0 && '-ml-20'} ss:m-0`}>
             <Link href={`/products/${item.slug}`}>
                 <ProductCard 
+                slug={item.slug}
+                isFavorite={item.isFavorite}
                 label={item.name}
                 image={item.images[0]}
                 price={item.price} 

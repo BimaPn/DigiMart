@@ -1,13 +1,22 @@
+"use client"
 import { FaRegHeart } from "react-icons/fa"
 import { FaHeart } from "react-icons/fa"
-const FavoriteButton = () => {
+import { useProduct } from "../providers/ProductProvider"
+
+const FavoriteButton = ({slug, isFavorite}:{slug: string, isFavorite?: boolean}) => {
+  const { addFavorite, removeFavorite } = useProduct()
   const buttonClick = (e:React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    console.log("hai bro")
+    if(isFavorite) {
+      removeFavorite(slug)
+    }else {
+      addFavorite(slug)
+    }
   }
   return (
     <button onClick={buttonClick} className="w-[34px] aspect-square flexCenter rounded-full bg-white">
-      <FaRegHeart className="text-xl text-gray-600 -mb-[2px]" />
+      {isFavorite && <FaHeart className="text-xl text-dark -mb-[2px]" />}
+      {!isFavorite && <FaRegHeart className="text-xl text-gray-600 -mb-[2px]" />}
     </button>
   )
 }

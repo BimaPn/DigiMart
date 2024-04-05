@@ -9,12 +9,15 @@ interface Product extends ProductGeneral {
   rating: number
   sold: number
   variants: Variant[]
+  isFavorite ?: boolean
 }
 type ProductCard = {
-  image : string,
-  label : string,
-  sold : number,
+  slug: string
+  image : string
+  label : string
+  sold : number
   price : number
+  isFavorite ?: boolean
 }
 
 interface ProductCart extends ProductGeneral {

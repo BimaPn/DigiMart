@@ -12,7 +12,8 @@ export const products = [
             label: "Color",
             options: ["Black","White","Gray"]
           },
-        ]
+        ],
+        isFavorite: true
     },
     {
         name:'Asus Zenbook Flip S UX370',
