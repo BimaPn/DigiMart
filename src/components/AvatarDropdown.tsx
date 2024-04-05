@@ -1,7 +1,7 @@
 "use client"
 import {Avatar, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react"
 import { IoMdSettings } from "react-icons/io"
-import { FaUser } from "react-icons/fa6"
+import { FaHeart, FaUser } from "react-icons/fa6"
 import { IoLogOut } from "react-icons/io5"
 
 const AvatarDropdown = ({className}:{className?:string}) => {
@@ -25,6 +25,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
               </div>
             </div>
           </DropdownItem>
+
           <DropdownItem
           key="my_profile"
           className="group"
@@ -34,6 +35,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
           >
            My profile 
           </DropdownItem>
+
           <DropdownItem 
           key="settings"
           className="group"
@@ -41,6 +43,15 @@ const AvatarDropdown = ({className}:{className?:string}) => {
           <IoMdSettings className="text-[22px] group-hover:text-black text-gray-500" />
           }>
           Settings</DropdownItem>
+
+          <DropdownItem 
+          key="favorite"
+          className="group"
+          startContent={
+          <FaHeart className="text-[19px] mx-[1px] group-hover:text-black text-gray-500" />
+          }>
+          Favorite</DropdownItem>
+
           <DropdownItem 
           key="logout"
           color="danger"

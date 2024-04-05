@@ -15,7 +15,7 @@ const FavoriteButton = ({slug, isFavorite}:{slug: string, isFavorite?: boolean})
   }
   return (
     <button onClick={buttonClick} className="w-[34px] aspect-square flexCenter rounded-full bg-white">
-      {isFavorite && <FaHeart className="text-xl text-dark -mb-[2px]" />}
+      {isFavorite && <FaHeart className="text-[19px] text-red-500 -mb-[2px]" />}
       {!isFavorite && <FaRegHeart className="text-xl text-gray-600 -mb-[2px]" />}
     </button>
   )
