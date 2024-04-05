@@ -6,6 +6,9 @@
 .boxWidth{
   @apply w-[1440px]
 }
+.boxWidth-md{
+  @apply w-[1024px]
+}
 .flexCenter{
   @apply flex justify-center items-center
 }
