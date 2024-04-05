@@ -19,7 +19,7 @@ const Hero = () => {
               href='/'
               startContent={<FaCartShopping className='text-white text-lg' />}
               className='w-fit bg-dark text-white mt-2 font-medium'>
-              Buy Now
+              <span className='-mb-[1px]'>Buy Now</span>
               </Button>
             </div>
           </div>

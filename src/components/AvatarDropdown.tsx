@@ -1,9 +1,10 @@
 "use client"
 import {Avatar, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react"
 import { IoMdSettings } from "react-icons/io"
-import { FaHeart, FaUser } from "react-icons/fa6"
+import {  FaUser } from "react-icons/fa6"
 import { IoLogOut } from "react-icons/io5"
 import Link from "next/link"
+import { HiMiniHeart } from "react-icons/hi2"
 
 const AvatarDropdown = ({className}:{className?:string}) => {
   return (
@@ -51,7 +52,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
           href="/favorite"
           className="group"
           startContent={
-          <FaHeart className="text-[19px] mx-[1px] group-hover:text-black text-gray-500" />
+          <HiMiniHeart className="text-[23px] -ml-[1px] group-hover:text-black text-gray-500" />
           }>
           Favorite</DropdownItem>
 

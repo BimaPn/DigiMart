@@ -15,7 +15,7 @@ const ProductDetail = ({params}:Params) => {
   return product && (
     <>
     <div className='w-full flexCenter'>
-    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 mt-14 sm:mt-24 sm:px-8'>
+    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 mt-4 sm:px-8'>
         <div className='overflow-hidden sm:sticky sm:top-24 h-fit'>
            < ProductImages images={product.images} />
         </div>
