@@ -1,6 +1,6 @@
 "use client"
 import {products as initialProducts} from "@/assets/products"
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
 type ProductProviderT = {
   products: Product[]
@@ -12,10 +12,6 @@ const productContext = createContext<ProductProviderT | null>(null)
 
 const ProductProvider = ({children}:{children:React.ReactNode}) => {
   const [products, setProducts] = useState<Product[]>(initialProducts)
-
-  useEffect(() => {
-    console.log(products)
-  },[products])
 
   const addFavorite = (slug:string) => {
     console.log("add favorite")
