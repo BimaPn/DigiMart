@@ -3,3 +3,10 @@ type User = {
   email: string
   avatar: string
 }
+type Address = {
+  place: string
+  name: string
+  phoneNumber: string 
+  address: string
+  main ?: boolean  
+}
