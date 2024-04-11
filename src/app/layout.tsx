@@ -3,7 +3,6 @@ import './globals.css'
 import { Roboto } from 'next/font/google'
 import ProductCartProvider from '@/components/providers/ProductCartProvider'
 import ProductProvider from '@/components/providers/ProductProvider'
-import DefaultLayout from '@/layouts/DefaultLayout'
 import UserProvider from '@/components/providers/UserProvider'
 
 const roboto = Roboto({ 
@@ -26,9 +25,7 @@ export default function RootLayout({
           <UserProvider>
             <ProductProvider>
               <ProductCartProvider>
-                <DefaultLayout>
                 {children}
-                </DefaultLayout>
               </ProductCartProvider>
             </ProductProvider>
           </UserProvider>
