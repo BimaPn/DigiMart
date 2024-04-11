@@ -1,7 +1,11 @@
+"use client"
 import { addresses } from "@/assets/addresses"
+import { useProductCart } from "@/components/providers/ProductCartProvider"
 import { Button, Radio, RadioGroup, cn } from "@nextui-org/react"
 import Image from "next/image"
 import { IoLocationSharp } from "react-icons/io5"
+import { IoIosArrowDown } from "react-icons/io"
+import { useState } from "react"
 
 const page = () => {
   return (
@@ -89,9 +93,11 @@ const page = () => {
         </div>
         <Button className="px-6 text-base bg-dark text-white rounded-xl mt-8">Checkout</Button>
       </div>
+
       <div className="w-1/3 aspect-square sticky top-0">
         <span className="font-medium text-xl">Summary</span>
-        <div className="flex flex-col gap-[10px] py-[10px] border-b">
+        <Cart />
+        <div className="flex flex-col gap-[10px] py-[10px] border-y">
           <div className="flexBetween">
             <span>Subtotal</span>
             <span>$843</span>
@@ -101,11 +107,67 @@ const page = () => {
             <span>FREE</span>
           </div>
         </div>
-        <div className="flexBetween py-3 border-b font-medium">
+        <div className="flexBetween py-3 font-medium">
           <span>Total</span>
           <span>$843</span>
         </div>
 
+      </div>
+    </div>
+  )
+}
+
+const Cart = () => {
+  const { products } = useProductCart()
+  const [showAll, setShowAll] = useState(false)
+  return (
+    <div className="flex flex-col gap-4 pb-5 pt-3">
+        {products.map((product, index) => (
+          <CartItem 
+          key={index} 
+          product={product}
+          className={`${(index > 3 && !showAll) ? "hidden" : "flex"}`}
+          />
+        ))}
+
+      {products.length > 4 && (
+        <div className="w-full flexCenter">
+          <button 
+          onClick={() => setShowAll(prev => !prev)}
+          className="border flexCenter gap-1 px-3 py-1 rounded-full hover:border-gray-300"
+          >
+            <span>
+            {showAll ? "Show less" : "Show all"}
+            </span>
+            <IoIosArrowDown className={`text-lg ${showAll ? "rotate-180":"rotate-0"}`} />
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const CartItem = ({product, className}:{product:ProductCart, className?:string}) => {
+  return (
+    <div className={`items-center gap-3 ${className}`}>
+      <div className='w-[81px] h-fit aspect-square bg-light rounded-lg p-1'>
+        <Image src={product.image} alt={product.name} width={`300`} height={`300`} className="w-full" />
+      </div>
+      <div className="w-[90%] flex justify-between gap-2">
+        <div className="w-full">
+          <div className="w-full">
+            <p className="line-clamp-2 overflow-hidden font-medium text-sm">
+            {product.quantity} x {product.name}
+            </p>
+          </div>
+
+          <div className='text-xs flex flex-col'>
+            {product.variants.map((variant, index) => (
+              <span key={index}>{variant.label} : {variant.value}</span>
+            ))}
+          </div>
+        </div>
+        <span className="font-medium text-sm">${product.price}</span>
       </div>
     </div>
   )

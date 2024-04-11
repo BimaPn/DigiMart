@@ -5,6 +5,8 @@ import productExample from '@/assets/checkout'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
+import { Button } from '@nextui-org/react'
+import Link from 'next/link'
 
 const CartItem = ({product}:{product:ProductCart}) => {
   const { deleteProduct, changeQuantity } = useProductCart()
@@ -109,7 +111,7 @@ const CartFooter = ({totalPrice}:{totalPrice:number}) => {
         <span>FREE</span>
       </div>
     </div>
-    <button className='w-full text-center py-3 rounded-xl bg-dark text-light'>Checkout</button>
+    <Button as={Link} href='/checkout' className='w-full bg-dark text-white'>Checkout</Button>
   </div>
   )
 }
