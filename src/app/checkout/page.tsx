@@ -10,11 +10,11 @@ import { useState } from "react"
 const page = () => {
   return (
     <div className="flex justify-between gap-6 relative px-2">
-      <div className="w-[62%] h-[2000px]">
+      <div className="w-[55%]">
         <div>
-          <span className="font-medium text-xl">Shipment</span>
+          <span className="font-medium text-xl">Shipping Address</span>
 
-          <div className="w-full border-b pb-4 pt-2">
+          <div className="w-full border-b pb-4 pt-3">
             <div className="flex flex-col gap-2 mt-2">
               <div className="flex items-center h-5 gap-2 font-medium text-lg text-gray-800">
                 <IoLocationSharp className="text-xl text-gray-500 -mr-1" />
@@ -28,70 +28,8 @@ const page = () => {
           </div>
 
         </div>
-        <div className="mt-5">
-          <span className="font-medium text-xl">Payment</span>
-          <div>
-            <RadioGroup
-              defaultValue="credit_card"
-              className="w-full"
-            >
-              <div className="w-full flexBetween py-[10px] border-b">
-                <Radio
-                value="credit_card"
-                >
-                  Credit Card
-                </Radio>
-                <CreditCardLogos />
-              </div>
-              <div className="w-full py-[10px] border-b">
-                <Radio
-                value="paypal"
-                className="w-full"
-                >
-                    <Image
-                    src={`/logo/paypal.png`}
-                    alt="paypal"
-                    width={200}
-                    height={100}
-                    className="w-[74px] h-auto"
-                    />
-                </Radio>
-              </div>
-              <div className="w-full py-[10px] border-b">
-                <Radio
-                value="amazon"
-                className="w-full"
-                >
-                  <div className="flex items-center gap-1">
-                    <Image
-                    src={`/logo/amazon.svg`}
-                    alt="amazon"
-                    width={200}
-                    height={100}
-                    className="w-[56px] h-auto -mb-[9px]"
-                    />
-                    <span>pay</span>
-                  </div>
-                </Radio>
-              </div>
-              <div className="w-full py-[10px] border-b">
-                <Radio
-                value="afterpay"
-                className="w-full"
-                >
-                    <Image
-                    src={`/logo/afterpay.png`}
-                    alt="afterpay"
-                    width={200}
-                    height={100}
-                    className="w-[82px] h-auto"
-                    />
-                </Radio>
-              </div>
-            </RadioGroup>
-          </div>
-        </div>
-        <Button className="px-6 text-base bg-dark text-white rounded-xl mt-8">Checkout</Button>
+        <ShippingMethod />
+        <PaymentOptions />
       </div>
 
       <div className="w-1/3 aspect-square sticky top-20 overflow-auto max-h-[80vh]">
@@ -104,16 +42,133 @@ const page = () => {
           </div>
           <div className="flexBetween">
             <span>Shipping</span>
-            <span>FREE</span>
+            <span>Free</span>
           </div>
         </div>
         <div className="flexBetween py-3 font-medium">
           <span>Total</span>
           <span>$843</span>
         </div>
-
+        
+        <Button className="w-full text-base bg-dark text-white rounded-xl mt-2">Checkout</Button>
       </div>
     </div>
+  )
+}
+
+const ShippingMethod = () => {
+  return (
+    <div className="mt-5">
+        <span className="font-medium text-xl">Shipping Method</span>
+        <div>
+          <RadioGroup
+            defaultValue="fast_shipping"
+            className="w-full"
+          >
+            <div className="w-full flexBetween py-3 mt-1 border-b">
+              <Radio
+              value="fast_shipping"
+              >
+                <div className="flex flex-col">
+                  <span>Fast Shipping</span>
+                  <span className="text-xs text-gray-700">(Estimated delivered in 5-8 days)</span>
+                </div>
+              </Radio>
+              <span>Free</span>
+            </div>
+            <div className="w-full flexBetween py-3 border-b">
+              <Radio
+              value="faster_shipping"
+              >
+                <div className="flex flex-col">
+                  <span>Faster Shipping</span>
+                  <span className="text-xs text-gray-700">(Estimated delivered in 2-3 days)</span>
+                </div>
+              </Radio>
+              <span>Free</span>
+            </div>
+            <div className="w-full flexBetween py-3 border-b">
+              <Radio
+              value="fastest_shipping"
+              >
+                <div className="flex flex-col">
+                  <span>Fastest Shipping</span>
+                  <span className="text-xs text-gray-700">(Estimated delivered in 1 day)</span>
+                </div>
+              </Radio>
+              <span>Free</span>
+            </div>
+          </RadioGroup>
+        </div>
+    </div>
+  )
+}
+
+const PaymentOptions = () => {
+  return (
+    <div className="mt-5">
+      <span className="font-medium text-xl">Payment</span>
+      <div>
+        <RadioGroup
+          defaultValue="credit_card"
+          className="w-full mt-1"
+        >
+          <div className="w-full flexBetween py-3 border-b">
+            <Radio
+            value="credit_card"
+            >
+              Credit Card
+            </Radio>
+            <CreditCardLogos />
+          </div>
+          <div className="w-full py-3 border-b">
+            <Radio
+            value="paypal"
+            className="w-full"
+            >
+                <Image
+                src={`/logo/paypal.png`}
+                alt="paypal"
+                width={200}
+                height={100}
+                className="w-[74px] h-auto"
+                />
+            </Radio>
+          </div>
+          <div className="w-full py-3 border-b">
+            <Radio
+            value="amazon"
+            className="w-full"
+            >
+              <div className="flex items-center gap-1">
+                <Image
+                src={`/logo/amazon.svg`}
+                alt="amazon"
+                width={200}
+                  height={100}
+                  className="w-[56px] h-auto -mb-[9px]"
+                  />
+                  <span>pay</span>
+                </div>
+              </Radio>
+            </div>
+            <div className="w-full py-[10px] border-b">
+              <Radio
+              value="afterpay"
+              className="w-full"
+              >
+                  <Image
+                  src={`/logo/afterpay.png`}
+                  alt="afterpay"
+                  width={200}
+                  height={100}
+                  className="w-[82px] h-auto"
+                  />
+              </Radio>
+            </div>
+          </RadioGroup>
+        </div>
+      </div>
   )
 }
 
