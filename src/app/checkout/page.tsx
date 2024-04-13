@@ -8,28 +8,24 @@ import { IoIosArrowDown } from "react-icons/io"
 import { useState } from "react"
 
 const page = () => {
+  const [checkout, setCheckout] = useState({
+    shippingMethod: "fast",
+    payment: "credit_card"
+  })
+  const onCheckout = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(checkout)
+  }
   return (
-    <div className="flex justify-between gap-6 relative px-2">
+    <form onSubmit={onCheckout} className="flex justify-between gap-6 relative px-2">
       <div className="w-[55%]">
-        <div>
-          <span className="font-medium text-xl">Shipping Address</span>
-
-          <div className="w-full border-b pb-4 pt-3">
-            <div className="flex flex-col gap-2 mt-2">
-              <div className="flex items-center h-5 gap-2 font-medium text-lg text-gray-800">
-                <IoLocationSharp className="text-xl text-gray-500 -mr-1" />
-                <span>{addresses[0].place}</span>
-                -
-                <span>{addresses[0].name}</span>
-              </div>
-              <div>{addresses[0].phoneNumber}</div>
-              <span>{addresses[0].address}</span>
-            </div>
-          </div>
-
-        </div>
-        <ShippingMethod />
-        <PaymentOptions />
+        <ShippingAddress /> 
+        <ShippingMethod
+        optionChange={(option) => setCheckout((prev) => ({...prev, shippingMethod: option}))} 
+        />
+        <PaymentOptions 
+        optionChange={(option) => setCheckout((prev) => ({...prev, payment: option}))} 
+        />
       </div>
 
       <div className="w-1/3 aspect-square sticky top-20 overflow-auto max-h-[80vh]">
@@ -50,61 +46,79 @@ const page = () => {
           <span>$843</span>
         </div>
         
-        <Button className="w-full text-base bg-dark text-white rounded-xl mt-2">Checkout</Button>
+        <Button type="submit" className="w-full text-base bg-dark text-white rounded-xl mt-2">Checkout</Button>
       </div>
-    </div>
+    </form>
   )
 }
 
-const ShippingMethod = () => {
+const ShippingAddress = () => {
+  return (
+  <div>
+    <span className="font-medium text-xl">Shipping Address</span>
+    <div className="w-full border-b pb-4 pt-3">
+      <div className="flex flex-col gap-2 mt-2">
+        <div className="flex items-center h-5 gap-2 font-medium text-lg text-gray-800">
+          <IoLocationSharp className="text-xl text-gray-500 -mr-1" />
+          <span>{addresses[0].place}</span>
+          -
+          <span>{addresses[0].name}</span>
+        </div>
+        <div>{addresses[0].phoneNumber}</div>
+        <span>{addresses[0].address}</span>
+      </div>
+    </div>
+  </div>
+  )
+}
+
+const ShippingMethod = ({optionChange}:{optionChange: (option: string)=>void}) => {
+  const methods = [
+  {
+    id: "fast",
+    label: "Fast Shipping",
+    description: "(Estimated delivered in 5-8 days)"
+  },
+  {
+    id: "faster",
+    label: "Faster Shipping",
+    description: "(Estimated delivered in 2-3 days)"
+  },
+  {
+    id: "fastest",
+    label: "Fastest Shipping",
+    description: "(Estimated delivered in 1 day)"
+  },
+  ]
   return (
     <div className="mt-5">
         <span className="font-medium text-xl">Shipping Method</span>
         <div>
           <RadioGroup
-            defaultValue="fast_shipping"
+            defaultValue={methods[0].id}
             className="w-full"
+            onChange={(e) => optionChange(e.target.value)}
           >
-            <div className="w-full flexBetween py-3 mt-1 border-b">
-              <Radio
-              value="fast_shipping"
-              >
-                <div className="flex flex-col">
-                  <span>Fast Shipping</span>
-                  <span className="text-xs text-gray-700">(Estimated delivered in 5-8 days)</span>
-                </div>
-              </Radio>
-              <span>Free</span>
-            </div>
-            <div className="w-full flexBetween py-3 border-b">
-              <Radio
-              value="faster_shipping"
-              >
-                <div className="flex flex-col">
-                  <span>Faster Shipping</span>
-                  <span className="text-xs text-gray-700">(Estimated delivered in 2-3 days)</span>
-                </div>
-              </Radio>
-              <span>Free</span>
-            </div>
-            <div className="w-full flexBetween py-3 border-b">
-              <Radio
-              value="fastest_shipping"
-              >
-                <div className="flex flex-col">
-                  <span>Fastest Shipping</span>
-                  <span className="text-xs text-gray-700">(Estimated delivered in 1 day)</span>
-                </div>
-              </Radio>
-              <span>Free</span>
-            </div>
+            {methods.map((method) => (
+              <div className="w-full flexBetween py-3 mt-1 border-b">
+                <Radio
+                value={method.id}
+                >
+                  <div className="flex flex-col">
+                    <span>{method.label}</span>
+                    <span className="text-xs text-gray-700">{method.description}</span>
+                  </div>
+                </Radio>
+                <span>Free</span>
+              </div>
+            ))}
           </RadioGroup>
         </div>
     </div>
   )
 }
 
-const PaymentOptions = () => {
+const PaymentOptions = ({optionChange}:{optionChange:(option:string)=>void}) => {
   return (
     <div className="mt-5">
       <span className="font-medium text-xl">Payment</span>
@@ -112,6 +126,7 @@ const PaymentOptions = () => {
         <RadioGroup
           defaultValue="credit_card"
           className="w-full mt-1"
+          onChange={(e) => optionChange(e.target.value)}
         >
           <div className="w-full flexBetween py-3 border-b">
             <Radio
