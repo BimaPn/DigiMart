@@ -11,7 +11,7 @@ export const metadata = {
     return (
       <>
         <Navbar />
-        <section className="w-[1024px] mx-auto mt-8">
+        <section className="w-[1036px] mx-auto mt-8">
           {children}
         </section>
       </>
@@ -20,7 +20,7 @@ export const metadata = {
 
   const Navbar = () => {
     return (
-      <nav className="px-4 py-2 shadow sticky top-0">
+      <nav className="px-4 py-2 shadow sticky top-0 z-[2000] bg-white">
         <div className="boxWidth mx-auto">
           <Link href='/' className='font-bold text-[22px] md:text-[26px]'>Gadget</Link>
         </div>  

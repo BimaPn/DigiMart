@@ -9,8 +9,8 @@ import { useState } from "react"
 
 const page = () => {
   return (
-    <div className="flex justify-between gap-6 relative">
-      <div className="w-[62%]">
+    <div className="flex justify-between gap-6 relative px-2">
+      <div className="w-[62%] h-[2000px]">
         <div>
           <span className="font-medium text-xl">Shipment</span>
 
@@ -94,7 +94,7 @@ const page = () => {
         <Button className="px-6 text-base bg-dark text-white rounded-xl mt-8">Checkout</Button>
       </div>
 
-      <div className="w-1/3 aspect-square sticky top-0">
+      <div className="w-1/3 aspect-square sticky top-20 overflow-auto max-h-[80vh]">
         <span className="font-medium text-xl">Summary</span>
         <Cart />
         <div className="flex flex-col gap-[10px] py-[10px] border-y">

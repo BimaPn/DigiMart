@@ -7,6 +7,7 @@ import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
 import { Button } from '@nextui-org/react'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const CartItem = ({product}:{product:ProductCart}) => {
   const { deleteProduct, changeQuantity } = useProductCart()
@@ -57,8 +58,15 @@ const CartItem = ({product}:{product:ProductCart}) => {
 const CartSideBar = () => {
   const { isOpen,toggleOpen } = useCartMenu()
   const { products, priceTotal } = useProductCart()
+  useEffect(() => {
+    if(isOpen) {
+      document.body.style.overflow = "hidden"
+    }else {
+      document.body.style.overflow = "auto"
+    }
+  },[isOpen])
   return (
-    <div className='flexCenter'>
+    <div className='flexCenter overflow-auto'>
         <button onClick={() => toggleOpen()}>
             < LuShoppingCart strokeWidth={1.7} className='text-[23px]' />
         </button>
@@ -66,14 +74,14 @@ const CartSideBar = () => {
         {/* sidebar */}
         <div onClick={() => toggleOpen()} 
         className={`${isOpen ? 'translate-x-0 backdrop-blur-sm bg-dark/20' : 'translate-x-full backdrop-blur-none bg-transparent'} 
-        absolute top-0 right-0 transitio w-screen h-screen sidebar-background-transition hidden xs:block`}>
+        absolute top-0 right-0 transitio w-screen h-screen sidebar-background-transition hidden xs:block overflow-hidden`}>
         </div>
 
       <div className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} sidebar-transition 
-      absolute top-0 right-0 min-h-screen w-full shadow-lg xs:w-[464px]
-    bg-white p-4 z-[2000]`}>
+      absolute top-0 right-0 max-h-screen h-screen overflow-auto w-full shadow-lg xs:w-[464px]
+    bg-white p-4 z-[2000] flex flex-col`}>
         {/* header */}
-        <div className='flexBetween pb-4 border-b'>
+        <div className='flexBetween pb-4 border-b flex-none'>
           <h2 className='font-bold text-xl mx-auto'>
             Shopping Cart
           </h2>
@@ -85,7 +93,7 @@ const CartSideBar = () => {
         </div>
 
         {/* content */}
-        <div className='flex flex-col gap-4 mt-8'>
+        <div className='flex flex-col gap-4 mt-8 flex-auto'>
           {products.map((product ,index) => (
             <CartItem key={index} product={product}/>
           ))}
@@ -100,7 +108,7 @@ const CartSideBar = () => {
 
 const CartFooter = ({totalPrice}:{totalPrice:number}) => {
   return(
-    <div className='fixed bottom-0 right-0 left-0 py-4 px-4'>
+    <div className='py-4 px-4 flex-none'>
     <div className='flex flex-col gap-[6px] mb-6 pt-4 border-t'>
       <div className='flexBetween'>
         <span>Subtotal</span>
