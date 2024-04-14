@@ -10,7 +10,7 @@ import { useAuth } from "./providers/UserProvider"
 const AvatarDropdown = ({className}:{className?:string}) => {
   const { user } = useAuth()
   return (
-      <div>
+      <div className="md:block hidden">
         <Dropdown placement="bottom-end">
         <DropdownTrigger>
           <Avatar 

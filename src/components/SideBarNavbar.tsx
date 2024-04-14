@@ -5,6 +5,7 @@ import {MdOutlineClose} from 'react-icons/md'
 import Link from 'next/link'
 import {IoIosArrowBack} from 'react-icons/io'
 import list from '@/assets/sideBarList'
+import NavigationList from './NavigationList'
 
 const SideBarContent = () =>{
   return(
@@ -37,7 +38,7 @@ const SideBarNavbar = () => {
 
       <div className={`${isActive ? 'translate-x-0' : '-translate-x-full'} sidebar-transition 
       absolute top-0 left-0 min-h-screen w-[75%] shadow-lg xs:w-[320px]
-    bg-white p-3 z-[2000]`}>
+    bg-white p-4 z-[2000]`}>
         {/* header */}
         <div className='flex items-center justify-end'>
           <button onClick={() => setIsActive(prev => !prev)}>
@@ -46,7 +47,7 @@ const SideBarNavbar = () => {
         </div>
 
         {/* content */}
-        < SideBarContent />
+        <NavigationList isMobile />
       </div>
     </div>
   )
