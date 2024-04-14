@@ -1,3 +1,6 @@
+import CancelledBadge from "@/components/badge/CancelledBadge"
+import FinishedBadge from "@/components/badge/FinishedBadge"
+import OnDeliveryBadge from "@/components/badge/OnDeliveryBadge"
 import { Button, Input } from "@nextui-org/react"
 import Image from "next/image"
 import { FiSearch } from "react-icons/fi"
@@ -62,21 +65,21 @@ const page = () => {
         <div className="pb-6 px-4 border rounded-2xl">
           <div className="flexBetween py-[10px] border-b mb-4">
             <div className="flex items-center gap-7">
-              <div className="flex flex-col">
-                <span className="text-xs text-gray-600">Date</span>
-                <span className="">12 September 1986</span>
+              <div className="flex flex-col gap-1">
+                <span className="text-xs text-gray-600">Status</span>
+                <OnDeliveryBadge />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-1">
                 <span className="text-xs text-gray-600">Payment</span>
                 <span className="">Paypal</span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-1">
                 <span className="text-xs text-gray-600">Shipping</span>
                 <span className="">Fast Shipping</span>
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <span className="text-xs text-gray-600">Total</span>
               <span className="font-medium">$454</span>
             </div>
