@@ -35,3 +35,11 @@ type Variant = {
  label: string
  options: string[]
 }
+
+interface Transaction {
+  status: "onDelivery" | "finished" | "cancelled" 
+  payment: string 
+  shipping: string 
+  totalPrice: number
+  products: ProductCart[]
+}

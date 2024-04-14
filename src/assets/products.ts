@@ -140,3 +140,99 @@ export const products = [
         ]
     },
 ]
+
+const cancelledProducts = [
+  {
+      name:'VR Oculus Headsets',
+      slug: "vr-oculus-headsets",
+      image:'/images/categories/vr.png',
+      price: 415,
+      quantity: 2,
+      variants : [
+        {
+          label: "Color",
+          value: "Black"
+        },
+      ],
+      stock: 0
+  },
+  {
+      name:'Beats Pro Wired Headphones',
+      slug: "beats-pro-wired-headphones",
+      image:'/images/categories/headset.png',
+      price: 225,
+      quantity: 1,
+      variants : [
+        {
+          label: "Color",
+          value: "White"
+        },
+      ],
+      stock: 0
+  },
+]
+
+const finishedProducts = [
+  {
+      name:'iPhone 13 Pro Max',
+      slug: "iphone-13-pro-max",
+      image: '/images/categories/phone.png',
+      price: 1200,
+      quantity: 1,
+      variants : [
+        {
+          label: "Color",
+          value: "Black"
+        },
+      ],
+      stock: 0
+  },
+]
+const onDeliveryProducts = [
+  {
+      name:'Asus Zenbook Flip S UX370',
+      image: '/images/categories/laptop.png',
+      slug: "asus-zenbook-flip-ux370",
+      price: 718,
+      stock: 0,
+      quantity: 2,
+      variants : [
+        {
+          label: "Color",
+          value: "Black"
+        },
+        {
+          label: "Storage",
+          value: "128GB"
+        },
+      ]
+  },
+]
+
+export const cancelledTransactions: Transaction[] = [
+  {
+    status: "cancelled",
+    payment: "paypal",
+    shipping: "Faster",
+    totalPrice: 1055,
+    products: cancelledProducts
+  },
+]
+export const finishedTransactions: Transaction[] = [
+  {
+    status: "finished",
+    payment: "paypal",
+    shipping: "Fastest",
+    totalPrice: 1200,
+    products: finishedProducts 
+  },
+]
+export const onDeliveryTransactions: Transaction[] = [
+  {
+    status: "onDelivery",
+    payment: "paypal",
+    shipping: "Fastest",
+    totalPrice: 1436,
+    products: onDeliveryProducts 
+  },
+]

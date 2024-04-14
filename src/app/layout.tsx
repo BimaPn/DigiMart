@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google'
 import ProductCartProvider from '@/components/providers/ProductCartProvider'
 import ProductProvider from '@/components/providers/ProductProvider'
 import UserProvider from '@/components/providers/UserProvider'
+import TransactionProvider from '@/components/providers/TransactionProvider'
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -21,15 +22,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} overflow-x-hidden text-dark relative`}>
+
+
         <UiProvider>
           <UserProvider>
             <ProductProvider>
               <ProductCartProvider>
-                {children}
+                <TransactionProvider>
+                                {children}
+                </TransactionProvider>
               </ProductCartProvider>
             </ProductProvider>
           </UserProvider>
         </UiProvider>
+        
+
+
       </body>
     </html>
   )
