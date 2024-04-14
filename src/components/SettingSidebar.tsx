@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { FiUser } from "react-icons/fi"
@@ -7,6 +6,7 @@ import { HiOutlineHeart } from "react-icons/hi"
 import { IoLogOutOutline } from "react-icons/io5"
 import { PiAddressBook } from "react-icons/pi"
 import UserLabel from "./UserLabel"
+import { CgBox } from "react-icons/cg"
 
 const SettingSidebar = () => {
   const pathname = usePathname()
@@ -31,6 +31,15 @@ const SettingSidebar = () => {
         >
         <HiOutlineHeart className="text-[22px]" />
         Favorite 
+        </Link>
+      </li>
+      <li>
+        <Link 
+        href={`/settings/orders`} 
+        className={`w-full p-2 hover:text-dark ${pathname.includes('orders') ? "text-dark":"text-gray-700"} flex items-center gap-2 rounded-lg`}
+        >
+        <CgBox className="text-[19px] ml-[2px] mr-[1px]" />
+        Order list 
         </Link>
       </li>
       <li>

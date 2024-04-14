@@ -64,7 +64,7 @@ const ShippingAddress = () => {
           -
           <span>{addresses[0].name}</span>
         </div>
-        <div>{addresses[0].phoneNumber}</div>
+        <div>+ {addresses[0].phoneNumber}</div>
         <span>{addresses[0].address}</span>
       </div>
     </div>
