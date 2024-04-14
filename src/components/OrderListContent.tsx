@@ -8,6 +8,7 @@ import FinishedBadge from "./badge/FinishedBadge"
 import CancelledBadge from "./badge/CancelledBadge"
 import Link from "next/link"
 import { finishedTransactions, cancelledTransactions } from "@/assets/products"
+import { useTransaction } from "./providers/TransactionProvider"
 
 const OrderListContent = () => {
   const [category, setCategory] = useState<"current"|"finished"|"cancelled">("current")
@@ -47,6 +48,7 @@ const OrderListContent = () => {
       </div>
 
       <div className="mt-5 flex flex-col gap-4">
+        {category === "current" && <OnDeliveryTransction />}
         {category === "finished" && <FinishedTransction />}
         {category === "cancelled" && <CancelledTransction />}
       </div>
@@ -54,6 +56,10 @@ const OrderListContent = () => {
   )
 }
 
+const OnDeliveryTransction = () => {
+  const { transactions } = useTransaction()
+  return transactions.map((transaction) => <TransactionItem transaction={transaction} />)
+}
 const FinishedTransction = () => {
   return finishedTransactions.map((transaction) => <TransactionItem transaction={transaction} />)
 }

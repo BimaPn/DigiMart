@@ -7,6 +7,7 @@ type ProductCartProviderT = {
   deleteProduct: (product:ProductCart) => void
   changeQuantity: (product: ProductCart, addedValue: number) => void 
   priceTotal: () => number
+  clearAll: () => void
 }
 
 const productCartContext = createContext<ProductCartProviderT | null>(null)
@@ -79,6 +80,10 @@ const ProductCartProvider = ({children}:{children:React.ReactNode}) => {
     products.forEach((product) => sum += (product.price * product.quantity))
     return sum
   }
+
+  const clearAll = () => {
+    setProducts([])
+  }
   return (
     <productCartContext.Provider 
     value={{ 
@@ -86,7 +91,8 @@ const ProductCartProvider = ({children}:{children:React.ReactNode}) => {
       addProduct, 
       deleteProduct,
       changeQuantity,
-      priceTotal 
+      priceTotal,
+      clearAll
     }}
     >
     {children}

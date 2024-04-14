@@ -6,22 +6,37 @@ import Image from "next/image"
 import { IoLocationSharp } from "react-icons/io5"
 import { IoIosArrowDown } from "react-icons/io"
 import { useState } from "react"
+import { useTransaction } from "@/components/providers/TransactionProvider"
+import { useRouter } from "next/navigation"
 
 const page = () => {
   const [checkout, setCheckout] = useState({
-    shippingMethod: "fast",
-    payment: "credit_card"
+    shipping: "fast",
+    payment: "credit card"
   })
+  const { clearAll, priceTotal, products } = useProductCart()
+  const { addTransaction } = useTransaction() 
+  const router = useRouter()
+
   const onCheckout = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(checkout)
+    let newTransaction: Transaction = {
+      status: "onDelivery",
+      payment: checkout.payment,
+      shipping: checkout.shipping,
+      totalPrice: priceTotal(),
+      products: products
+    }
+    addTransaction(newTransaction)
+    clearAll()
+    router.push('/checkout/success')
   }
-  return (
+  return products.length > 0 && (
     <form onSubmit={onCheckout} className="flex justify-between gap-6 relative px-2">
       <div className="w-[55%]">
         <ShippingAddress /> 
         <ShippingMethod
-        optionChange={(option) => setCheckout((prev) => ({...prev, shippingMethod: option}))} 
+        optionChange={(option) => setCheckout((prev) => ({...prev, shipping: option}))} 
         />
         <PaymentOptions 
         optionChange={(option) => setCheckout((prev) => ({...prev, payment: option}))} 
@@ -30,7 +45,7 @@ const page = () => {
 
       <div className="w-1/3 aspect-square sticky top-20 overflow-auto max-h-[80vh]">
         <span className="font-medium text-xl">Summary</span>
-        <Cart />
+        <Cart products={products} />
         <div className="flex flex-col gap-[10px] py-[10px] border-y">
           <div className="flexBetween">
             <span>Subtotal</span>
@@ -100,7 +115,7 @@ const ShippingMethod = ({optionChange}:{optionChange: (option: string)=>void}) =
             onChange={(e) => optionChange(e.target.value)}
           >
             {methods.map((method) => (
-              <div className="w-full flexBetween py-3 mt-1 border-b">
+              <div key={method.id} className="w-full flexBetween py-3 mt-1 border-b">
                 <Radio
                 value={method.id}
                 >
@@ -124,13 +139,13 @@ const PaymentOptions = ({optionChange}:{optionChange:(option:string)=>void}) => 
       <span className="font-medium text-xl">Payment</span>
       <div>
         <RadioGroup
-          defaultValue="credit_card"
+          defaultValue="credit card"
           className="w-full mt-1"
           onChange={(e) => optionChange(e.target.value)}
         >
           <div className="w-full flexBetween py-3 border-b">
             <Radio
-            value="credit_card"
+            value="credit card"
             >
               Credit Card
             </Radio>
@@ -152,7 +167,7 @@ const PaymentOptions = ({optionChange}:{optionChange:(option:string)=>void}) => 
           </div>
           <div className="w-full py-3 border-b">
             <Radio
-            value="amazon"
+            value="amazon pay"
             className="w-full"
             >
               <div className="flex items-center gap-1">
@@ -187,8 +202,7 @@ const PaymentOptions = ({optionChange}:{optionChange:(option:string)=>void}) => 
   )
 }
 
-const Cart = () => {
-  const { products } = useProductCart()
+const Cart = ({products}:{products:ProductCart[]}) => {
   const [showAll, setShowAll] = useState(false)
   return (
     <div className="flex flex-col gap-4 pb-5 pt-3">

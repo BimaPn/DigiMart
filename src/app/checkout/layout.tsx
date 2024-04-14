@@ -9,12 +9,12 @@ export const metadata = {
     children: React.ReactNode
   }) {
     return (
-      <>
+      <section className="h-screen">
         <Navbar />
         <section className="w-[1036px] mx-auto mt-8">
           {children}
         </section>
-      </>
+      </section>
     )
   }
 
