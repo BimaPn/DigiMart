@@ -236,3 +236,11 @@ export const onDeliveryTransactions: Transaction[] = [
     products: onDeliveryProducts 
   },
 ]
+
+const newArrivalProductIndexes = [1,4,2,6,8,5]
+const trendingProductIndexes = [2,7,0,1,6,3]
+const mostPopularProductIndexes = [7,8,3,2,5,4]
+
+export const newArrivalProducts = products.filter((product,index) => newArrivalProductIndexes.includes(index))
+export const trendingProducts = products.filter((product,index) => trendingProductIndexes.includes(index))
+export const mostPopularProducts = products.filter((product,index) => mostPopularProductIndexes.includes(index))
