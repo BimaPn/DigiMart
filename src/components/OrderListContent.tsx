@@ -14,7 +14,7 @@ const OrderListContent = () => {
   const [category, setCategory] = useState<"current"|"finished"|"cancelled">("current")
   return (
     <>
-     <div className="flex items-end justify-between">
+     <div className="flex flex-col-reverse md:flex-row md:items-end md:justify-between gap-5 md:gap-0">
         <ul className="flex items-center gap-2 text-sm">
           <li>
             <button
@@ -43,7 +43,7 @@ const OrderListContent = () => {
         variant="flat"
         startContent={<FiSearch className="text-xl text-gray-600" />}
         placeholder="Search order"
-        className="md:w-[30%]"
+        className="w-full xs:w-[80%] sm:w-1/2 md:w-[30%]"
         />
       </div>
 
@@ -79,26 +79,26 @@ const TransactionItem = ({transaction}:{transaction: Transaction}) => {
     return <CancelledBadge />
   }
   return (
-     <div className="pb-6 px-4 border rounded-2xl">
+     <div className="pb-3 xs:pb-6 px-4 border rounded-2xl">
       <div className="flexBetween py-[10px] border-b mb-4">
         <div className="flex items-center gap-7">
           <div className="flex flex-col gap-1">
             <span className="text-xs text-gray-600">Status</span>
             {checkStatus(transaction.status)}
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="hidden xs:flex flex-col gap-1">
             <span className="text-xs text-gray-600">Payment</span>
-            <span className="">{transaction.payment}</span>
+            <span className="text-sm xs:text-base">{transaction.payment}</span>
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="hidden xs:flex flex-col gap-1">
             <span className="text-xs text-gray-600">Shipping</span>
-            <span className="">{transaction.shipping} Shipping</span>
+            <span className="text-sm xs:text-base">{transaction.shipping} Shipping</span>
           </div>
         </div>
 
         <div className="flex flex-col gap-1">
           <span className="text-xs text-gray-600">Total</span>
-          <span className="font-medium">${transaction.totalPrice}</span>
+          <span className="font-medium text-sm xs:text-base">${transaction.totalPrice}</span>
         </div>
       </div>
 
@@ -115,7 +115,7 @@ const TransactionItem = ({transaction}:{transaction: Transaction}) => {
 const ProductItem = ({product}:{product: ProductCart}) => {
   return (
     <div className={`flex items-center gap-4`}>
-      <div className='w-[128px] h-fit aspect-square bg-light rounded-lg p-1'>
+      <div className='xs:w-[128px] w-[111px] h-fit aspect-square bg-light rounded-lg p-1'>
         <Image 
         src={product.image}
         alt={product.name}
@@ -127,26 +127,29 @@ const ProductItem = ({product}:{product: ProductCart}) => {
       <div className="w-[90%] flex justify-between gap-2">
         <div className="w-full">
           <div className="w-full">
-            <p className="line-clamp-2 overflow-hidden font-medium">
+            <p className="line-clamp-2 overflow-hidden font-medium mb-1 xs:mb-0">
             {product.name}
             </p>
           </div>
 
-          <div className='text-xs flex flex-col gap-[2px]'>
-            <span>Quantity : {product.quantity}</span>
-            {product.variants.map((variant) => <span>{variant.label} : {variant.value}</span>)}
+          <div className='text-xs flex xs:flex-col flex-wrap gap-2 xs:gap-[2px] leading-[11px] xs:leading-normal'>
+            <span>Quantity : {product.quantity},</span>
+            {product.variants.map((variant) => <span>{variant.label} : {variant.value},</span>)}
           </div>
-          <div className="flex items-end justify-between">
+          <div className="flex justify-between">
             <div className="flex items-center gap-1 mt-2">
               <span className="font-medium">${product.price}</span>
               <span className="text-gray-600 text-sm">/ unit</span>
             </div>
-            <Button
-            as={Link}
-            href={`/products/${product.slug}`}
-            size="sm" className="px-6 !py-4 bg-dark text-white rounded-full">
-              <span className="-mt-[2px]">Buy again</span>
-            </Button>
+            <div className="mt-3 xs:mt-0">
+              <Button
+              as={Link}
+              href={`/products/${product.slug}`}
+              size="sm" className="px-3 xs:px-6 !py-4 bg-dark text-white rounded-full">
+                <span className="-mt-[2px]">Buy again</span>
+              </Button>
+            </div>
+
           </div>
 
 
