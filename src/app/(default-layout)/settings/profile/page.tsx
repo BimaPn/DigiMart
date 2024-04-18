@@ -5,7 +5,9 @@ import Image from "next/image"
 const page = () => {
   return (
     <div className="w-full">
-      <span className="font-medium text-2xl">Personal Data</span>
+      <div className="text-center sm:text-start">
+        <span className="font-medium text-xl md:text-2xl">Personal Data</span>
+      </div>
       <FormChangeProfile />
     </div>
   )

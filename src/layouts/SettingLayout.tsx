@@ -8,11 +8,11 @@ import SettingSidebar from "@/components/SettingSidebar"
 
 const SettingLayout = ({children}:{children:React.ReactNode}) => {
   return (
-    <section className="boxWidth-md mx-auto min-h-[60vh] flex gap-12 mt-8 relative">
-      <aside className="w-[20%] sticky top-20 h-fit">
+    <section className="md:w-[1024px] w-full mx-auto flex justify-center gap-12 mt-8 relative pb-32 sm:pb-36">
+      <aside className="w-[20%] sticky top-20 h-fit hidden md:block">
         <SettingSidebar />
       </aside>
-      <div className="basis-[77%]">
+      <div className="w-full sm:basis-[85%] md:basis-[77%] px-3">
         {children}
       </div>
     </section>

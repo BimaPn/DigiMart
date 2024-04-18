@@ -30,8 +30,8 @@ const FormChangeProfile = () => {
     changeUser(data)
   }
   return (
-    <form onSubmit={formSubmit} className="flex justify-between mt-4">
-      <div className="w-[52%] flex flex-col gap-3">
+    <form onSubmit={formSubmit} className="flex sm:flex-row flex-col-reverse sm:items-start gap-8 sm:gap-0 items-center justify-between mt-4">
+      <div className="w-full sm:w-[55%] md:w-[52%] flex flex-col gap-3">
         <Input 
         type="text"
         value={data.name}
@@ -66,12 +66,12 @@ const FormChangeProfile = () => {
         readOnly
         />
         <Button 
-        className="w-fit text-base bg-dark text-white mt-3 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full sm:w-fit text-base bg-dark text-white mt-3 disabled:opacity-50 disabled:cursor-not-allowed"
         type='submit'
         disabled={disabledButton}
         >Change</Button>
       </div>  
-      <div className="w-[34%] relative group">
+      <div className="xs:w-[40%] w-1/2 sm:w-[262px] md:w-[34%] relative group">
         <input ref={inputImage} type="file" onChange={handleImageChange} className='hidden' />
         <Image
         src={data.avatar}
