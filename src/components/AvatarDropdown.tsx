@@ -30,16 +30,6 @@ const AvatarDropdown = ({className}:{className?:string}) => {
             </div>
           </DropdownItem>
 
-          <DropdownItem
-          key="my_profile"
-          className="group"
-          startContent={
-          <FaUser className="text-lg mx-[2px] group-hover:text-black text-gray-500" />
-          }
-          >
-           My profile 
-          </DropdownItem>
-
           <DropdownItem 
           key="settings"
           className="group"
@@ -66,7 +56,7 @@ const AvatarDropdown = ({className}:{className?:string}) => {
           color="danger"
           startContent={
           <div>
-          <IoLogOut className="text-[22px] text-gray-500 ml-[2px] -mr-[2px]"/>
+          <IoLogOut className="text-[22px] group-hover:text-white text-gray-500 ml-[2px] -mr-[2px]"/>
           </div>
           }
           >

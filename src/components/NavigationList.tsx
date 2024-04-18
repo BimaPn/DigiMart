@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 const NavigationList = ({isMobile=false}:{isMobile?: boolean}) => {
   const path = usePathname()
   return (
-     <ul className={`flex ${isMobile ? "flex-col":"flex-row"} gap-5 text-gray-600`}>
+     <ul className={`flex ${isMobile ? "flex-col":"flex-row"} gap-1 md:gap-5 text-gray-600`}>
       {navigation.map((item, index) => (
         <li
         key={item.label} 
