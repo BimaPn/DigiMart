@@ -35,16 +35,20 @@ const navigation = {
     ],
     moreInfo:[
         {
-            title:'About',
-            link:'/news'
+            title:'Home',
+            link:'/'
         },
         {
-            title:'Contact',
-            link:'/news'
+            title:'New Arrivals',
+            link:'/tag/new-arrivals'
         },
         {
-            title:'News',
-            link:'/news'
+            title:'Most Popular',
+            link:'/tag/most-popular'
+        },
+        {
+            title:'Trending',
+            link:'/tag/trending'
         },
     ]
 }
