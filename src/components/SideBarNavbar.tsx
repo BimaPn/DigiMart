@@ -33,7 +33,7 @@ const SideBarNavbar = () => {
 
       <div onClick={() => setIsActive(prev => !prev)} 
       className={`${isActive ? 'translate-x-0 backdrop-blur-sm bg-dark/20' : '-translate-x-full backdrop-blur-none bg-transparent'} 
-                  absolute top-0 left-0 transitio w-screen h-screen sidebar-background-transition `}>
+                  absolute top-0 left-0 w-screen h-screen sidebar-background-transition`}>
       </div>
 
       <div className={`${isActive ? 'translate-x-0' : '-translate-x-full'} sidebar-transition 

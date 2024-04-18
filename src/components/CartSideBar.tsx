@@ -6,8 +6,8 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
 import { Button } from '@nextui-org/react'
-import Link from 'next/link'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const CartItem = ({product}:{product:ProductCart}) => {
   const { deleteProduct, changeQuantity } = useProductCart()
@@ -79,7 +79,7 @@ const CartSideBar = () => {
 
       <div className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} sidebar-transition 
       absolute top-0 right-0 max-h-screen h-screen overflow-auto w-full shadow-lg xs:w-[464px]
-    bg-white p-4 z-[2000] flex flex-col`}>
+    bg-white p-4 pb-0 z-[2000] flex flex-col`}>
         {/* header */}
         <div className='flexBetween pb-4 border-b flex-none'>
           <h2 className='font-bold text-xl mx-auto'>
@@ -100,13 +100,17 @@ const CartSideBar = () => {
         </div>
 
         {/* add to cart navigation */}
-        < CartFooter totalPrice={priceTotal()}/>
+        < CartFooter totalPrice={priceTotal()} isDisabled={products.length <= 0}/>
       </div>
     </div>
   )
 }
 
-const CartFooter = ({totalPrice}:{totalPrice:number}) => {
+const CartFooter = ({totalPrice, isDisabled}:{totalPrice:number, isDisabled:boolean}) => {
+  const router = useRouter()
+  const directTo = () => {
+    router.push(`/checkout`)
+  }
   return(
     <div className='py-4 px-4 flex-none'>
     <div className='flex flex-col gap-[6px] mb-6 pt-4 border-t'>
@@ -119,7 +123,10 @@ const CartFooter = ({totalPrice}:{totalPrice:number}) => {
         <span>FREE</span>
       </div>
     </div>
-    <Button as={Link} href='/checkout' className='w-full bg-dark text-white'>Checkout</Button>
+    <Button
+    onClick={() => directTo()}
+    disabled={isDisabled}
+    className='w-full bg-dark text-white disabled:opacity-50 disabled:cursor-not-allowed'>Checkout</Button>
   </div>
   )
 }

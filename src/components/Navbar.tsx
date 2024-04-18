@@ -21,8 +21,13 @@ const Navbar = () => {
     }
   },[])
     return(
-        <nav className='w-full sticky top-0 right-0 left-0 bg-white/90 backdrop-blur z-[10]'>
-        <div style={{ padding: `${isExpanded ? "10px":"14px"} 0`, transition: 'padding 0.3s' }} className='w-full flexCenter !px-3 sm:!px-6'>
+        <nav className='w-full fixed top-0 right-0 left-0 bg-white/90 backdrop-blur z-[4000]'>
+        <div 
+        style={{
+          padding: `${isExpanded ? "10px":"14px"} 0`,
+          transition: 'padding 0.3s'
+          }}
+        className={`w-full flexCenter !px-3 sm:!px-6`}>
             <div className='boxWidth flexBetween'>
                 {/* burger menu */}
                 <div className='w-1/3 block md:hidden'>
