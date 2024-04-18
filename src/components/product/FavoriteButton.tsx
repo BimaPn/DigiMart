@@ -14,8 +14,8 @@ const FavoriteButton = ({slug, isFavorite}:{slug: string, isFavorite?: boolean})
   }
   return (
     <button onClick={buttonClick} className="w-[34px] aspect-square flexCenter rounded-full bg-white">
-      {isFavorite && <HiOutlineHeart className="text-[22px] text-red-600 -mb-[2px]" />}
-      {!isFavorite && <HiMiniHeart className="text-[22px] text-gray-600 -mb-[2px]" />}
+      {!isFavorite && <HiOutlineHeart className="text-[22px] text-red-600 -mb-[2px]" />}
+      {isFavorite && <HiMiniHeart className="text-[22px] text-gray-600 -mb-[2px]" />}
     </button>
   )
 }

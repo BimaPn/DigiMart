@@ -7,7 +7,7 @@ import { PiShareNetworkFill } from "react-icons/pi"
 const page = () => {
   return (
     <div className="w-full">
-        <span className="inline-block font-medium text-2xl mb-3">Addresses</span>
+        <span className="inline-block font-medium text-xl md:text-2xl mb-3">Addresses</span>
         <Input 
         variant="flat"
         startContent={<FiSearch className="text-xl text-gray-600" />}
