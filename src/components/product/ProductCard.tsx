@@ -14,7 +14,7 @@ const ProductCard = ({slug, isFavorite, image, label, sold, price}:ProductCard) 
           <h1 className="font-bold xs:text-lg">${price}.00</h1>
         </div>
         <div className='absolute top-0 right-0 p-2 hidden group-hover:block'>
-          <FavoriteButton slug={slug} isFavorite={isFavorite}/>
+          <FavoriteButton slug={slug} isFavorite={isFavorite} className='text-[22px]'/>
         </div>
   </div>
   )

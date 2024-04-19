@@ -19,7 +19,7 @@ const Varriants = (
     <div className='border-t py-4 mt-4 text-sm'>
       {variants.map((item, index) => (
         <div key={index} className={`${index > 0 && 'mt-5'}`}>
-          <h1 className='font-bold text-lg'>{item.label}</h1>
+          <h1 className='font-medium text-lg'>{item.label}</h1>
           <div className='flex flex-wrap gap-3 mt-2'>
             {item.options.map((option,optionIndex) => (
               <button

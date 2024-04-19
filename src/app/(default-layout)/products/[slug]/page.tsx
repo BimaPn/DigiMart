@@ -15,7 +15,7 @@ const ProductDetail = ({params}:Params) => {
   return product && (
     <>
     <div className='w-full flexCenter'>
-    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 mt-4 sm:px-8'>
+    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 -mt-2 sm:mt-4 sm:px-8'>
         <div className='overflow-hidden sm:sticky sm:top-24 h-fit'>
            < ProductImages images={product.images} />
         </div>
@@ -23,7 +23,7 @@ const ProductDetail = ({params}:Params) => {
             <h1 className='text-2xl md:text-3xl md:mb-2'>{product.name}</h1>
             <Ratings sold={12} />
             <h1 className='font-bold text-2xl md:text-3xl mt-3 sm:mt-2 md:mt-3 mb-4 sm:mb-6'>${product.price}</h1>
-            <ProductAction product={product}/>
+            <ProductAction slug={product.slug}/>
             <div className='mt-6 border-b'>
                 < MoreDetail />
                 < Reviews/>
@@ -32,7 +32,7 @@ const ProductDetail = ({params}:Params) => {
     </div>
     </div>
     <div className='my-14 sm:my-20'>
-        < ProductsRecomendations products={categories} />
+      < ProductsRecomendations />
     </div>
     </>
   )

@@ -1,18 +1,17 @@
-import BottomNav from "@/components/product/BottomNav"
 
 export const metadata = {
     title: 'Detail Product',
   }
   
   export default function LoginLayout({
-    children,
+    children,params
   }: {
-    children: React.ReactNode
+    children: React.ReactNode,
+    params: {slug:string}
   }) {
     return (
       <>
         {children}
-        < BottomNav />
       </>
     )
   }

@@ -7,6 +7,7 @@ type ProductProviderT = {
   addFavorite: (slug:string) => void
   removeFavorite: (slug:string) => void
   favoriteProducts: () => Product[]
+  findProduct: (slug:string) => Product 
 }
 const productContext = createContext<ProductProviderT | null>(null)
 
@@ -14,7 +15,6 @@ const ProductProvider = ({children}:{children:React.ReactNode}) => {
   const [products, setProducts] = useState<Product[]>(initialProducts)
 
   const addFavorite = (slug:string) => {
-    console.log("add favorite")
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
         if(product.slug === slug) {
@@ -25,7 +25,6 @@ const ProductProvider = ({children}:{children:React.ReactNode}) => {
     })
   }
   const removeFavorite = (slug:string) => {
-    console.log("remove favorite")
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
         if(product.slug === slug) {
@@ -38,8 +37,11 @@ const ProductProvider = ({children}:{children:React.ReactNode}) => {
   const favoriteProducts = () => {
     return products.filter((product) => product.isFavorite === true)
   }
+  const findProduct = (slug:string) => {
+    return products.find((product) => product.slug === slug) as Product
+  }
   return (
-    <productContext.Provider value={{ products, addFavorite, removeFavorite, favoriteProducts }}>
+    <productContext.Provider value={{ products, addFavorite, removeFavorite, favoriteProducts, findProduct }}>
       {children}
     </productContext.Provider>    
   )
