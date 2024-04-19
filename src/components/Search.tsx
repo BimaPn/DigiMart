@@ -34,8 +34,8 @@ const Search = ({className}:{className:string}) => {
                     <h2 className={`${active ? 'scale-100 delay-300 duration-200' : 'scale-0'} transition-transform text-gray-500 mb-3`}>What are you looking for ?</h2>
                     <ul className={`${active ? 'scale-y-100 delay-700 duration-200' : 'scale-y-0'} origin-top transition-transform text-lg`}>
                         {list.map(item =>(
-                            <li key={item} className='mb-2'>
-                                {item}
+                            <li key={item.label} className='mb-2'>
+                              <Link href={item.link}>{item.label}</Link>
                             </li>
                         ))}
                     </ul>

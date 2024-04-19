@@ -1,18 +1,13 @@
-import Link from "next/link"
-import { FiUser } from "react-icons/fi"
-import { HiOutlineHeart } from "react-icons/hi2"
-import { PiAddressBook } from "react-icons/pi"
-import { IoLogOutOutline } from "react-icons/io5"
-import UserLabel from "@/components/UserLabel"
-import SettingSidebar from "@/components/SettingSidebar"
+import SettingSidebar, { MobileSettingNavigation } from "@/components/SettingSidebar"
 
 const SettingLayout = ({children}:{children:React.ReactNode}) => {
   return (
-    <section className="md:w-[1024px] w-full mx-auto flex justify-center gap-12 mt-8 relative pb-32 sm:pb-36">
-      <aside className="w-[20%] sticky top-20 h-fit hidden md:block">
+    <section className="md:w-[1024px] w-full mx-auto flex justify-center gap-4 md:gap-12 mt-8 relative pb-32 sm:pb-36 ss:px-3 md:px-0">
+      <aside className="w-fit md:w-[20%] sticky top-20 h-fit xs:block hidden px-4 md:px-0 border-r md:border-0">
         <SettingSidebar />
       </aside>
-      <div className="w-full sm:basis-[85%] md:basis-[77%] px-3">
+      <div className="w-full md:basis-[77%] px-3">
+        <MobileSettingNavigation />
         {children}
       </div>
     </section>
