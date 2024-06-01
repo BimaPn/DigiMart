@@ -11,11 +11,7 @@ const page = () => {
           bg-no-repeat bg-cover bg-center
           flex xs:items-center justify-end rounded-3xl py-[18%] xs:py-0 px-4 sm:px-6 md:px-16`}
           />
-
-
-      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4 mt-12">
         <ProductList indexesFiltered={trendingProductIndexes} /> 
-      </div>
     </div>
     </section>
 
