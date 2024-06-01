@@ -14,7 +14,7 @@ const Hero = () => {
           bg-[url('/images/hero/mobile.jpg')] xs:bg-[url('/images/hero/wide.jpg')] md:bg-[url('/images/hero/ultra-wide.jpg')]
           bg-no-repeat bg-cover bg-center
           flex xs:items-center rounded-3xl py-[18%] xs:py-0 px-4 sm:px-6 md:px-16`}>
-            <div className='w-[70%] xs:w-1/2 md:w-[50%] flex flex-col gap-3 xs:gap-2 ss:gap-4 -mt-8'>
+            <div className='w-[90%] xs:w-1/2 md:w-[50%] flex flex-col gap-3 xs:gap-2 ss:gap-4 -mt-8'>
               <span
               className='text-[32px] xs:text-3xl sm:text-4xl md:text-5xl text-dark font-bold leading-tight xs:!leading-tight sm:!leading-[50px] md:!leading-[58px]'
               >Transform Your World With Virtual Reality</span>
