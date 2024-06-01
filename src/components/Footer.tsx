@@ -8,6 +8,7 @@ import company from "@/assets/companyInfo"
 import { BsTelephone } from "react-icons/bs"
 import { AiOutlineMail } from "react-icons/ai"
 import { SlLocationPin } from "react-icons/sl"
+import { AppTitle } from "./AppIcon"
 
 const SocialMedia = ({className}:{className?:string}) => {
   return (
@@ -21,8 +22,8 @@ const SocialMedia = ({className}:{className?:string}) => {
 const CompanyInfo = () => {
     return(
       <div className="basis-1/2 font-roboto tracking-wide">
-        <h1 className="font-bold text-2xl xs:text-3xl tracking-wide">{company.name}</h1>
-        <div className="flex flex-col gap-3 text-sm mt-5 xs:mt-8 text-dark">
+        <AppTitle />
+        <div className="flex flex-col gap-3 text-sm mt-5 text-dark">
           <div className="flex gap-2">
             < BsTelephone className="text-[16px]" />
             <span>{company.phone_number}</span>

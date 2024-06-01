@@ -35,7 +35,7 @@ const Navbar = () => {
                     <SideBarNavbar />
                 </div>
                 {/* 1 */}
-                <div className='w-1/3 md:w-[25%] text-center md:text-start'>
+                <div className='w-1/3 md:w-[25%] flex justify-center md:justify-start'>
                   <AppTitle />
                 </div>
                 <div className='md:flex hidden items-center justify-center gap-8 w-1/2'>

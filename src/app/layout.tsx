@@ -6,6 +6,7 @@ import ProductProvider from '@/components/providers/ProductProvider'
 import UserProvider from '@/components/providers/UserProvider'
 import TransactionProvider from '@/components/providers/TransactionProvider'
 import company from "@/assets/companyInfo"
+import ProgressbarProvider from '@/components/providers/ProgressbarProvider'
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
   subsets: ['latin'] 
@@ -22,18 +23,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} text-dark overflow-x-hidden`}>
-        <UiProvider>
-          <UserProvider>
-            <ProductProvider>
-              <ProductCartProvider>
-                <TransactionProvider>
-                                {children}
-                </TransactionProvider>
-              </ProductCartProvider>
-            </ProductProvider>
-          </UserProvider>
-        </UiProvider>
-
+        <ProgressbarProvider> 
+          <UiProvider>
+            <UserProvider>
+              <ProductProvider>
+                <ProductCartProvider>
+                  <TransactionProvider>
+                                  {children}
+                  </TransactionProvider>
+                </ProductCartProvider>
+              </ProductProvider>
+            </UserProvider>
+          </UiProvider>
+        </ProgressbarProvider>
       </body>
     </html>
   )

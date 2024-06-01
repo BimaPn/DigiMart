@@ -31,21 +31,21 @@ const SideBarNavbar = () => {
   return (
     <div className='flex justify-start items-center'>
       <button onClick={() => setIsActive(prev => !prev)}>
-        < HiOutlineMenuAlt2 strokeWidth={1.6} className='text-[27px] w-8' />
+        < HiOutlineMenuAlt2 strokeWidth={1.6} className='text-[27px] w-8 text-dark' />
       </button>
 
       <div onClick={() => setIsActive(prev => !prev)} 
       className={`${isActive ? 'translate-x-0 backdrop-blur-sm bg-dark/20' : '-translate-x-full backdrop-blur-none bg-transparent'} 
-                  absolute top-0 left-0 w-screen h-screen sidebar-background-transition`}>
+                  absolute top-0 left-0 w-screen h-screen sidebar-background-transition border z-[499]`}>
       </div>
 
       <div className={`${isActive ? 'translate-x-0' : '-translate-x-full'} sidebar-transition 
       absolute top-0 left-0 min-h-screen w-full shadow-lg xs:w-[320px]
-    bg-white py-4 px-5 z-[2000]`}>
+    bg-white py-4 px-5 z-[500]`}>
         {/* header */}
         <div className='flex items-center justify-end'>
           <button onClick={() => setIsActive(prev => !prev)}>
-            <MdOutlineClose className='text-[26px]'/> 
+            <MdOutlineClose className='text-[26px] text-dark'/> 
           </button>
         </div>
 

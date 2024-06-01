@@ -17,7 +17,7 @@ const Search = ({className}:{className:string}) => {
                 <div className={` ${active ? 'bg-light pr-4 w-[90%] md:w-[512px] width-transition-200 width-transition' : 'w-10 bg-transparent p-0'} ${className} flex items-center justify-between`}>
                     <input type="text" className={`${active ? 'w-full border-0 focus:ring-0 focus:outline-none bg-transparent px-4 py-2' : 'w-0'}`} placeholder='Search' />
                     <button onClick={() => setActive(prev => !prev)}>
-                        < FiSearch className='text-[22px] text-gray-700 hover:text-dark'  />
+                        < FiSearch className='text-[22px] text-dark md:text-gray-700 hover:text-dark'  />
                     </button>
                 </div>
                 <button

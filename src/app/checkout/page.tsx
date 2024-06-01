@@ -7,7 +7,6 @@ import { IoLocationSharp } from "react-icons/io5"
 import { IoIosArrowDown } from "react-icons/io"
 import { useState } from "react"
 import { useTransaction } from "@/components/providers/TransactionProvider"
-import { useRouter } from "next/navigation"
 
 import {
   Modal, 
@@ -15,6 +14,7 @@ import {
   ModalHeader, 
   ModalBody, 
 } from "@nextui-org/react";
+import { useRouter } from "next-nprogress-bar"
 
 const page = () => {
   const [checkout, setCheckout] = useState({
@@ -40,7 +40,7 @@ const page = () => {
   }
   return products.length > 0 && (
     <form onSubmit={onCheckout} className="h-fit flex justify-between flex-col md:flex-row gap-6 relative">
-      <div className="w-full h-fit md:w-[55%]">
+      <div className="w-full h-screen md:w-[55%]">
         <ShippingAddress /> 
         <ShippingMethod
         optionChange={(option) => setCheckout((prev) => ({...prev, shipping: option}))} 

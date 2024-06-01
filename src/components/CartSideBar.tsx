@@ -68,7 +68,7 @@ const CartSideBar = () => {
   return (
     <div className='flexCenter overflow-auto'>
         <button onClick={() => toggleOpen()}>
-            < LuShoppingCart strokeWidth={1.7} className={`text-[23px] text-gray-700 hover:text-dark`} />
+            <LuShoppingCart strokeWidth={1.7} className={`text-[23px] text-dark md:text-gray-700 hover:text-dark`} />
         </button>
 
         {/* sidebar */}

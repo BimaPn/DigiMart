@@ -11,10 +11,10 @@ const AppIcon = ({size=57}:{size?: number}) => {
   )
 }
 
-export const AppTitle = () => {
+export const AppTitle = ({className}:{className?: string}) => {
   return (
-    <Link href='/' className='flex items-center gap-1 font-bold text-[22px] md:text-[24px]'> 
-      <AppIcon size={30} />
+    <Link href='/' className={`flex items-center gap-1 font-bold text-[22px] md:text-[24px] ${className}`}> 
+      <AppIcon size={29} />
       <span>DigiMart</span>
     </Link>
   )

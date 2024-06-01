@@ -2,35 +2,35 @@ const navigation = {
     shop:[
         {
             title:'Mobiles & Tablets',
-            link :'www.facebook.com'
+            link :'/categories/phones-mobiles'
         },
         {
             title:'PC & Laptops',
-            link :'www.facebook.com'
+            link :'/categories/computers'
         },
         {
             title:'Virtual Reality',
-            link :'www.facebook.com'
+            link :'/categories/vr'
         },
         {
             title:'Play Stations',
-            link :'www.facebook.com'
+            link :'/categories/consoles'
         },
         {
             title:'Apple Watches',
-            link :'www.facebook.com'
+            link :'/categories/smartwatches'
         },
         {
             title:'Gaming Headphones',
-            link :'www.facebook.com'
+            link :'/categories/headsets'
         },
         {
             title:'Keyboards & Mouses',
-            link :'www.facebook.com'
+            link :'/categories/mise-keyboards'
         },
         {
             title:'Asus Laptop',
-            link :'www.facebook.com'
+            link :'/categories/computers'
         },
     ],
     moreInfo:[
