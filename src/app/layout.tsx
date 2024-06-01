@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} text-dark`}>
+      <body className={`${roboto.className} text-dark overflow-x-hidden`}>
         <UiProvider>
           <UserProvider>
             <ProductProvider>

@@ -12,22 +12,6 @@ import { HiMiniHeart } from 'react-icons/hi2'
 import { IoLogOut } from 'react-icons/io5'
 
 
-const SideBarContent = () =>{
-  return(
-    <div className='mt-8'>
-      <ul>
-        {list.map(item => (
-          <li key={item} className='flexBetween py-2'>
-            <span>{item}</span>
-            < IoIosArrowBack className='rotate-180' />
-          </li>
-        ))}
-      </ul>
-      <Link href='/login' className='w-full bg-dark text-light text-center py-2 rounded-lg block mt-10'>Sign In</Link>
-    </div>
-  )
-}
-
 const SideBarNavbar = () => {
   const [isActive,setIsActive] = useState<boolean>(false)
 
@@ -35,7 +19,7 @@ const SideBarNavbar = () => {
     if(isActive) {
       document.body.style.overflow = "hidden"
     }else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "visible"
     }
   },[isActive])
   return (

@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className='boxWidth flexBetween'>
                 {/* burger menu */}
                 <div className='w-1/3 block md:hidden'>
-                    < SideBarNavbar />
+                    <SideBarNavbar />
                 </div>
                 {/* 1 */}
                 <div className='w-1/3 md:w-[25%] text-center md:text-start'>

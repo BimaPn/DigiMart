@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html, body {
+  @apply overflow-x-hidden
+}
 .boxWidth{
-  @apply w-[1440px]
+  @apply w-full xl:w-[1440px] overflow-x-hidden
 }
 .boxWidth-md{
-  @apply w-[1024px]
+  @apply w-full md:w-[1024px]
 }
 .flexCenter{
   @apply flex justify-center items-center
