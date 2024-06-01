@@ -1,7 +1,7 @@
 import Advertisement from "@/components/Home/Advertisement"
 import Categories from "@/components/Home/Categories"
 import Hero from "@/components/Home/Hero"
-import MostPopuler from "@/components/Home/MostPopuler"
+import MostPopular from "@/components/Home/MostPopular"
 import NewArrivals from "@/components/Home/NewArrivals"
 import OurServices from "@/components/Home/OurServices"
 import Trending from "@/components/Home/Trending"
@@ -14,7 +14,7 @@ const page = () => {
   <Trending />
   <NewArrivals />
   <Advertisement />
-  <MostPopuler />
+  <MostPopular />
   <OurServices />
   </>
   )

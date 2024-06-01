@@ -16,7 +16,7 @@ const page = () => {
 
       <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4 mt-12">
         {trendingProducts.map((product) => (
-          <Link href={`/products/${product.slug}`}>
+          <Link key={product.slug} href={`/products/${product.slug}`}>
               <ProductCard 
               slug={product.slug}
               isFavorite={product.isFavorite}

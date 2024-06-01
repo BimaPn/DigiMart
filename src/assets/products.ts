@@ -6,6 +6,7 @@ export const products = [
         rating: 5,
         sold: 42,
         price: 415,
+        category: "televisions",
         stock: 21,
         variants : [
           {
@@ -23,6 +24,7 @@ export const products = [
         sold: 64,
         price: 718,
         stock: 41,
+        category: "computers",
         variants : [
           {
             label: "Color",
@@ -42,6 +44,7 @@ export const products = [
         sold: 110,
         price: 1200,
         stock: 3,
+        category: "phones-mobiles",
         variants : [
           {
             label: "Color",
@@ -57,6 +60,7 @@ export const products = [
         sold: 400,
         price: 250,
         stock: 9,
+        category: "consoles",
         variants : [
           {
             label: "Color",
@@ -72,6 +76,7 @@ export const products = [
         sold: 84,
         price: 60,
         stock: 29,
+        category: "games-videos",
         variants : [
           {
             label: "Color",
@@ -86,6 +91,7 @@ export const products = [
         rating: 5,
         sold: 32,
         price: 225,
+        category: "headsets",
         stock: 7,
         variants : [
           {
@@ -102,6 +108,7 @@ export const products = [
         sold: 119,
         price: 350,
         stock: 14,
+        category: "smartwatches",
         variants : [
           {
             label: "Color",
@@ -117,6 +124,7 @@ export const products = [
         sold: 650,
         price: 415,
         stock: 99,
+        category: "vr",
         variants : [
           {
             label: "Color",
@@ -132,6 +140,7 @@ export const products = [
         sold: 99,
         price: 115,
         stock: 12,
+        category: "mise-keyboards",
         variants : [
           {
             label: "Color",

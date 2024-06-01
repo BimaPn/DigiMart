@@ -11,7 +11,7 @@ const CategorySlider = ({categories,title}:{categories:any[],title:string}) => {
     <Slider break_points={breakPoint.category} sliderTitle={'All Categories'} className='p-0 ss:px-5'>
     {categories.map((item,index) => (
         <SwiperSlide key={index} className={`flexCenter flex-col ${index == 0 && '-ml-24 ssm:-ml-32 xs:-ml-48'} ss:m-0`}>
-            <Link href={`facebook.com`} className='group'>
+            <Link href={`/categories/${item.slug}`} className='group'>
               <div className='aspect-square rounded-full p-2 sm:p-4 md:p-6 relative overflow-hidden'>
                 <div className='absolute top-0 left-0 w-full aspect-square bg-light z-0 group-hover:scale-100 scale-0 transform-transition !duration-100'/>
                 <div className='w-full aspect-square flexCenter absolute top-0 left-0 z-[1]'>
