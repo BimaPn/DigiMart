@@ -6,6 +6,7 @@ import CartSideBar from '@/components/CartSideBar'
 import AvatarDropdown from './AvatarDropdown'
 import NavigationList from './NavigationList'
 import { useEffect, useState } from 'react'
+import { AppTitle } from './AppIcon'
 
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
@@ -35,7 +36,7 @@ const Navbar = () => {
                 </div>
                 {/* 1 */}
                 <div className='w-1/3 md:w-[25%] text-center md:text-start'>
-                  <Link href='/' className='font-bold text-[22px] md:text-[26px]'>Gadget</Link>
+                  <AppTitle />
                 </div>
                 <div className='md:flex hidden items-center justify-center gap-8 w-1/2'>
                   <NavigationList /> 

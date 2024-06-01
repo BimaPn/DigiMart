@@ -5,13 +5,13 @@ import ProductCartProvider from '@/components/providers/ProductCartProvider'
 import ProductProvider from '@/components/providers/ProductProvider'
 import UserProvider from '@/components/providers/UserProvider'
 import TransactionProvider from '@/components/providers/TransactionProvider'
-
+import company from "@/assets/companyInfo"
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
   subsets: ['latin'] 
 })
 export const metadata = {
-  title: 'Shopper - Ecommerce',
+  title: `${company.name} - Ecommerce`,
 }
 
 export default function RootLayout({

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import Link from 'next/link'
 import list from '@/assets/searchList'
+import { AppTitle } from './AppIcon'
 
 const Search = ({className}:{className:string}) => {
     const [active,setActive] = useState<boolean>(false);
@@ -10,11 +11,13 @@ const Search = ({className}:{className:string}) => {
         <>
         <div className={`${active ? 'absolute top-0 left-0 right-0 px-3 sm:px-8 bg-white z-[3000]' : 'w-fit'} h-full flexCenter`}>
             <div className={`${active ? 'boxWidth justify-between' : 'w-fit justify-center'} flex items-center gap-4`}>
-                <Link href='/' className={`${active ? 'md:block hidden' : 'hidden'} font-bold text-2xl md:text-3xl`}>Gadget</Link>
+                <div className={`${active ? 'md:block hidden' : 'hidden'}`}>
+                  <AppTitle />
+                </div>
                 <div className={` ${active ? 'bg-light pr-4 w-[90%] md:w-[512px] width-transition-200 width-transition' : 'w-10 bg-transparent p-0'} ${className} flex items-center justify-between`}>
                     <input type="text" className={`${active ? 'w-full border-0 focus:ring-0 focus:outline-none bg-transparent px-4 py-2' : 'w-0'}`} placeholder='Search' />
                     <button onClick={() => setActive(prev => !prev)}>
-                        < FiSearch className='text-[22px] text-gray-600 hover:text-dark'  />
+                        < FiSearch className='text-[22px] text-gray-700 hover:text-dark'  />
                     </button>
                 </div>
                 <button
