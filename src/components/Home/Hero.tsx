@@ -18,7 +18,7 @@ const Hero = () => {
               <span
               className='text-[32px] xs:text-3xl sm:text-4xl md:text-5xl text-dark font-bold leading-tight xs:!leading-tight sm:!leading-[50px] md:!leading-[58px]'
               >Transform Your World With Virtual Reality</span>
-              <span className='text-sm sm:text-base xs:-mt-[6px]'>Explore our VR collection and make your purchase today to unlock new worlds of excitement.</span>
+              <span className='text-sm sm:text-base -mt-[4px] xs:-mt-[6px]'>Explore our VR collection and make your purchase today to unlock new worlds of excitement.</span>
               <Button 
               as={Link}
               href='/categories/vr'
@@ -31,7 +31,7 @@ const Hero = () => {
               href='/categories/vr'
               size='sm'
               startContent={<FaCartShopping className='text-white text-lg' />}
-              className='w-fit bg-dark text-white mt-3 font-medium sm:hidden flex'>
+              className='w-fit bg-dark text-white mt-1 font-medium sm:hidden flex'>
               <span className='-mb-[1px]'>Buy Now</span>
               </Button>
             </div>
