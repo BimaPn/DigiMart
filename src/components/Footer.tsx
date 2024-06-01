@@ -63,7 +63,7 @@ const Footer = ({className}:{className ?:string}) => {
         <div className="flex justify-center items-center flex-col sm:flex-row sm:justify-between gap-8 mb-3 mt-8 xs:mt-12">
           <div className="w-fit text-sm tracking-wide text-semiDark order-last sm:order-first text-center xs:text-start">
             <span>
-            © 2024 Roboton. All Rights Reserved. 
+            © 2024 {company.name}. All Rights Reserved. 
             <span className="text-dark underline cursor-pointer px-[6px]">Term of Use</span>
              & 
             <span className="text-dark underline cursor-pointer px-[6px]">Privacy Policy</span></span>
