@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { AppTitle } from "@/components/AppIcon"
 
 export const metadata = {
     title: 'Checkout',
@@ -21,9 +21,7 @@ export const metadata = {
   const Navbar = () => {
     return (
       <nav className="px-6 py-2 shadow sticky top-0 z-[20] bg-white">
-        <div className="boxWidth mx-auto">
-          <Link href='/' className='font-bold text-[22px] md:text-[26px]'>Gadget</Link>
-        </div>  
+        <AppTitle /> 
       </nav> 
     )
   }
