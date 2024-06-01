@@ -5,6 +5,22 @@
 html, body {
   @apply overflow-x-hidden
 }
+/* CUSTOM CURSORBAR */
+*::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+*::-webkit-scrollbar
+{
+	width: 8px;
+}
+
+*::-webkit-scrollbar-thumb
+{
+  @apply bg-gray-300 rounded-full hover:bg-gray-400
+}
+
 .boxWidth{
   @apply w-full xl:w-[1440px] overflow-x-hidden
 }

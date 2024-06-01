@@ -1,5 +1,5 @@
 const ads = {
-    title : 'Enjoy Playing VR with Family',
-    description : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident esse, nostrum exercitationem dolores culpa incidunt '
+    title : 'Explore Our Newest Gadgets',
+    description : "Find out our newest arrivals such as phones, computers, and more. Buy now and don't miss out."
 }
 export default ads

@@ -59,7 +59,7 @@ const Footer = ({className}:{className ?:string}) => {
             < NewsLetter />
           </div>
         </div>
-        <div className="flex justify-center items-center flex-col sm:flex-row sm:justify-between gap-8 mb-6 mt-8 xs:mt-12">
+        <div className="flex justify-center items-center flex-col sm:flex-row sm:justify-between gap-8 mb-3 mt-8 xs:mt-12">
           <div className="w-fit text-sm tracking-wide text-semiDark order-last sm:order-first text-center xs:text-start">
             <span>
             © 2024 Roboton. All Rights Reserved. 
