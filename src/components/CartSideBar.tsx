@@ -7,6 +7,7 @@ import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
 import { Button } from '@nextui-org/react'
 import { useRouter } from 'next-nprogress-bar'
+import Image from 'next/image'
 
 const CartItem = ({product}:{product:ProductCart}) => {
   const { deleteProduct, changeQuantity } = useProductCart()
@@ -21,7 +22,7 @@ const CartItem = ({product}:{product:ProductCart}) => {
   return(
     <div className='flex gap-4 relative'>
     <div className='w-36 h-fit aspect-square bg-light rounded-lg'>
-      <img src={product.image} className='w-full' alt="product" />
+      <Image src={product.image} width={600} height={600} className='w-full h-auto' alt="product" />
     </div>
     <div className='w-full'>
       <span className='w-[85%] xs:w-[90%] font-medium xs:text-lg leading-5 line-clamp-1 overflow-hidden'>{product.name}</span>

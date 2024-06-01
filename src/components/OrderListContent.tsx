@@ -58,14 +58,14 @@ const OrderListContent = () => {
 
 const OnDeliveryTransction = () => {
   const { transactions } = useTransaction()
-  return transactions.map((transaction) => <TransactionItem transaction={transaction} />)
+  return transactions.map((transaction, i) => <TransactionItem key={i} transaction={transaction} />)
 }
 const FinishedTransction = () => {
-  return finishedTransactions.map((transaction) => <TransactionItem transaction={transaction} />)
+  return finishedTransactions.map((transaction, i) => <TransactionItem key={i} transaction={transaction} />)
 }
 
 const CancelledTransction = () => {
-  return cancelledTransactions.map((transaction) => <TransactionItem transaction={transaction} />)
+  return cancelledTransactions.map((transaction, i) => <TransactionItem key={i} transaction={transaction} />)
 }
 
 
@@ -104,7 +104,7 @@ const TransactionItem = ({transaction}:{transaction: Transaction}) => {
 
       <div className="flex flex-col gap-4">
         {transaction.products.map((product) => (
-          <ProductItem product={product} /> 
+          <ProductItem key={product.slug} product={product} /> 
         ))}
       </div>
     </div>
@@ -134,7 +134,7 @@ const ProductItem = ({product}:{product: ProductCart}) => {
 
           <div className='text-xs flex xs:flex-col flex-wrap gap-2 xs:gap-[2px] leading-[11px] xs:leading-normal'>
             <span>Quantity : {product.quantity},</span>
-            {product.variants.map((variant) => <span>{variant.label} : {variant.value},</span>)}
+            {product.variants.map((variant, i) => <span key={i}>{variant.label} : {variant.value},</span>)}
           </div>
           <div className="flex justify-between">
             <div className="flex items-center gap-1 mt-2">

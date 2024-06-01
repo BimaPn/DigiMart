@@ -1,7 +1,5 @@
-import { mostPopularProducts } from '@/assets/products'
-import ProductCard from '@/components/product/ProductCard'
-import Link from 'next/link'
-import React from 'react'
+import { mostPopularProductIndexes } from '@/assets/products'
+import ProductList from '@/components/ProductList'
 
 const page = () => {
   return (
@@ -13,19 +11,7 @@ const page = () => {
           bg-no-repeat bg-cover bg-center
           flex xs:items-center justify-end rounded-3xl py-[18%] xs:py-0 px-4 sm:px-6 md:px-16`}
           />
-      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4 mt-12">
-        {mostPopularProducts.map((product) => (
-          <Link key={product.slug} href={`/products/${product.slug}`}>
-              <ProductCard 
-              slug={product.slug}
-              isFavorite={product.isFavorite}
-              label={product.name}
-              image={product.images[0]}
-              price={product.price} 
-              sold={product.sold} />
-          </Link> 
-        ))}
-      </div>
+          <ProductList indexesFiltered={mostPopularProductIndexes} />
     </div>
     </section>
   )

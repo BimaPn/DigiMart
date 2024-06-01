@@ -3,6 +3,7 @@ import {useState} from 'react'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import {MdOutlineStarPurple500} from 'react-icons/md'
 import reviews from '@/assets/reviews'
+import Image from 'next/image'
 
 const Reviews = () => {
     const [isDrop,setIsDrop] = useState<boolean>(false);
@@ -29,7 +30,7 @@ const Reviews = () => {
                         <div key={index} className='mb-11'>
                             {/* header */}
                             <div className='flex items-center'>
-                                <img src={item.image} className='w-12 aspect-square rounded-full object-cover' alt={item.image} />
+                                <Image src={item.image} width={100} height={100} className='w-12 aspect-square rounded-full object-cover' alt={item.image} />
                                 <div className='ml-3'>
                                     <h1 className='font-bold text-base mb-[2px]'>{item.name}</h1>
                                     <div className='flex items-center'>

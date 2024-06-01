@@ -15,7 +15,7 @@ const page = () => {
         className="md:w-[40%]"
         />
         <div className="flex flex-col gap-2 mt-2">
-          {addresses.map((address) => <AddressItem address={address} />)}
+          {addresses.map((address, i) => <AddressItem key={i} address={address} />)}
         </div>  
     </div>
   )

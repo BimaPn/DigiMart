@@ -1,6 +1,5 @@
-import { trendingProducts } from "@/assets/products"
-import ProductCard from '@/components/product/ProductCard'
-import Link from 'next/link'
+import { trendingProductIndexes } from "@/assets/products"
+import ProductList from "@/components/ProductList"
 
 const page = () => {
   return (
@@ -15,17 +14,7 @@ const page = () => {
 
 
       <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4 mt-12">
-        {trendingProducts.map((product) => (
-          <Link key={product.slug} href={`/products/${product.slug}`}>
-              <ProductCard 
-              slug={product.slug}
-              isFavorite={product.isFavorite}
-              label={product.name}
-              image={product.images[0]}
-              price={product.price} 
-              sold={product.sold} />
-          </Link> 
-        ))}
+        <ProductList indexesFiltered={trendingProductIndexes} /> 
       </div>
     </div>
     </section>

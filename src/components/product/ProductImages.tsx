@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Pagination } from 'swiper/modules';
+import Image from 'next/image';
 
 const ProductImages = ({images}:{images:string[]}) => {
     const pagination = {
@@ -22,7 +23,7 @@ const ProductImages = ({images}:{images:string[]}) => {
             >
             {images.map((item, index) => (
                 <SwiperSlide  key={index} className='aspect-square sm:aspect-[4/3] bg-light'>
-                    <img src={item} alt={item} className='mx-auto w-full sm:w-[80%]'/>
+                    <Image src={item} alt={item} width={700} height={700} className='mx-auto w-full sm:w-[80%] h-auto'/>
                 </SwiperSlide>
             ))}
         </Swiper>
