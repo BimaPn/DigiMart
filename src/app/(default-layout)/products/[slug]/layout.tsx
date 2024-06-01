@@ -4,10 +4,9 @@ export const metadata = {
   }
   
   export default function LoginLayout({
-    children,params
+    children
   }: {
     children: React.ReactNode,
-    params: {slug:string}
   }) {
     return (
       <>

@@ -13,11 +13,11 @@ type Params = {
 const ProductDetail = ({params}:Params) => {
   const product = products.find((product) => product.slug === params.slug)
   return product && (
-    <>
+    <section className=' sm:px-8'>
     <div className='w-full flexCenter'>
-    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 -mt-2 sm:mt-4 sm:px-8'>
-        <div className='overflow-hidden sm:sticky sm:top-24 h-fit'>
-           < ProductImages images={product.images} />
+    <div className='w-[1444px] grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1fr_1fr] gap-4 sm:gap-8 md:gap-14 -mt-2 sm:mt-4 relative'>
+        <div className='overflow-hidden sm:sticky sm:top-20 h-fit'>
+           <ProductImages images={product.images} />
         </div>
         <div className='w-full md:w-[80%] px-4'>
             <h1 className='text-2xl md:text-3xl md:mb-2'>{product.name}</h1>
@@ -34,7 +34,7 @@ const ProductDetail = ({params}:Params) => {
     <div className='my-14 sm:my-20'>
       < ProductsRecomendations />
     </div>
-    </>
+    </section>
   )
 }
 

@@ -10,10 +10,12 @@ import { Avatar, Button } from '@nextui-org/react'
 import { useAuth } from './providers/UserProvider'
 import { HiMiniHeart } from 'react-icons/hi2'
 import { IoLogOut } from 'react-icons/io5'
+import { usePathname } from 'next/navigation'
 
 
 const SideBarNavbar = () => {
   const [isActive,setIsActive] = useState<boolean>(false)
+  const path = usePathname()
 
   useEffect(() => {
     if(isActive) {
@@ -22,6 +24,10 @@ const SideBarNavbar = () => {
       document.body.style.overflow = "visible"
     }
   },[isActive])
+
+  useEffect(() => {
+    setIsActive(false)
+  },[path])
   return (
     <div className='flex justify-start items-center'>
       <button onClick={() => setIsActive(prev => !prev)}>
