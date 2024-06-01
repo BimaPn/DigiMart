@@ -6,8 +6,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useCartMenu } from './providers/CartMenuProvider'
 import { useProductCart } from './providers/ProductCartProvider'
 import { Button } from '@nextui-org/react'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next-nprogress-bar'
 
 const CartItem = ({product}:{product:ProductCart}) => {
   const { deleteProduct, changeQuantity } = useProductCart()
@@ -58,13 +57,6 @@ const CartItem = ({product}:{product:ProductCart}) => {
 const CartSideBar = () => {
   const { isOpen,toggleOpen } = useCartMenu()
   const { products, priceTotal } = useProductCart()
-  useEffect(() => {
-    if(isOpen) {
-      document.body.style.overflow = "hidden"
-    }else {
-      document.body.style.overflow = "visible"
-    }
-  },[isOpen])
   return (
     <div className='flexCenter overflow-auto'>
         <button onClick={() => toggleOpen()}>
@@ -73,7 +65,7 @@ const CartSideBar = () => {
 
         {/* sidebar */}
         <div onClick={() => toggleOpen()} 
-        className={`${isOpen ? 'translate-x-0 backdrop-blur-sm bg-dark/20' : 'translate-x-full backdrop-blur-none bg-transparent'} 
+        className={`${isOpen ? 'translate-x-0 bg-dark/20' : 'translate-x-full bg-transparent'} 
         absolute top-0 right-0 transitio w-screen h-screen sidebar-background-transition hidden xs:block overflow-hidden`}>
         </div>
 

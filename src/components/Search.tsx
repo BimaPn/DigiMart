@@ -30,7 +30,7 @@ const Search = ({className}:{className:string}) => {
 
         <div 
         onClick={() => setActive(prev => !prev)}
-        className={`${active ? 'scale-100' : 'scale-0'} sm:block hidden absolute top-[60px] md:top-12 left-0 w-screen h-screen bg-dark/20 sm:backdrop-blur-sm z-0`}>
+        className={`${active ? 'scale-100' : 'scale-0'} sm:block hidden absolute top-[60px] md:top-12 left-0 w-screen h-screen bg-dark/20 z-0`}>
         </div>
             <div className={`${active ? 'scale-100' : 'scale-0'} w-full h-screen sm:h-fit absolute top-[60px] md:top-12 left-0 pb-14 bg-white z-50`}>
                 <div className='w-full md:w-[512px] mx-auto pt-4 px-3 sm:px-8'>

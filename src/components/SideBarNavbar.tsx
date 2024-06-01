@@ -18,14 +18,6 @@ const SideBarNavbar = () => {
   const path = usePathname()
 
   useEffect(() => {
-    if(isActive) {
-      document.body.style.overflow = "hidden"
-    }else {
-      document.body.style.overflow = "visible"
-    }
-  },[isActive])
-
-  useEffect(() => {
     setIsActive(false)
   },[path])
   return (
@@ -35,8 +27,8 @@ const SideBarNavbar = () => {
       </button>
 
       <div onClick={() => setIsActive(prev => !prev)} 
-      className={`${isActive ? 'translate-x-0 backdrop-blur-sm bg-dark/20' : '-translate-x-full backdrop-blur-none bg-transparent'} 
-                  absolute top-0 left-0 w-screen h-screen sidebar-background-transition border z-[499]`}>
+      className={`${isActive ? 'translate-x-0 bg-dark/20' : '-translate-x-full backdrop-blur-none bg-transparent'} 
+                  absolute top-0 left-0 w-screen h-screen z-[499]`}>
       </div>
 
       <div className={`${isActive ? 'translate-x-0' : '-translate-x-full'} sidebar-transition 
