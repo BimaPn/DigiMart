@@ -67,11 +67,11 @@ const CartSideBar = () => {
         {/* sidebar */}
         <div onClick={() => toggleOpen()} 
         className={`${isOpen ? 'translate-x-0 bg-dark/20' : 'translate-x-full bg-transparent'} 
-        absolute top-0 right-0 transitio w-screen h-screen sidebar-background-transition hidden xs:block overflow-hidden`}>
+        absolute top-0 right-0 transitio w-dvw h-dvh sidebar-background-transition hidden xs:block overflow-hidden`}>
         </div>
 
       <div className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} sidebar-transition 
-      absolute top-0 right-0 max-h-screen h-screen overflow-auto w-full shadow-lg xs:w-[464px]
+      absolute top-0 right-0 max-h-dvh h-dvh overflow-auto w-full shadow-lg xs:w-[464px]
     bg-white p-4 pb-0 z-[2000] flex flex-col`}>
         {/* header */}
         <div className='flexBetween pb-4 border-b flex-none'>

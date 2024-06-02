@@ -9,7 +9,7 @@ export const metadata = {
     children: React.ReactNode
   }) {
     return (
-      <section className="h-screen max-h-screen overflow-auto overflow-x-hidden md:pb-12">
+      <section className="h-svh max-h-svh overflow-auto overflow-x-hidden md:pb-12">
         <Navbar />
         <section className="w-full md:w-[1024px] mx-auto md:mt-8 mt-4 px-3 sm:px-4 h-fit">
           {children}

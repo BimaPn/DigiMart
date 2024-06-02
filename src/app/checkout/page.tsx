@@ -40,7 +40,7 @@ const page = () => {
   }
   return products.length > 0 && (
     <form onSubmit={onCheckout} className="h-fit flex justify-between flex-col md:flex-row gap-6 relative">
-      <div className="w-full h-screen md:w-[55%]">
+      <div className="w-full h-svh md:w-[55%]">
         <ShippingAddress /> 
         <ShippingMethod
         optionChange={(option) => setCheckout((prev) => ({...prev, shipping: option}))} 
